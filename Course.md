@@ -118,6 +118,16 @@ Every formal workshop follows this pattern:
 - 10 min: peer clinic using actual evidence;
 - 5 min: reflection, recorded next action, and module gate.
 
+### Required between-session practice runs
+
+After M1–M5, every learner completes one **manual** 15–30 minute `practice-run` from the Conductor’s canonical Bot Chat or Desktop workspace. It reuses the repository-first contract, manifest, receipt, review, and approval artifacts taught in class. The Conductor records one status: `complete`, `blocked`, or `needs catch-up`; it does not grade an agent’s claim.
+
+A blocked learner submits a minimum viable practice record: the run manifest, evidence of the blocker, and one attempted recovery step. A catch-up clinic supports completion before the next module. Cron scheduling is an optional advanced exercise only after the learner has demonstrated a manual workflow and an approval boundary.
+
+### Cohort-one external-action policy
+
+Cohort one supports authentic operational workflows but **prohibits live external execution** inside the course. Learners create real drafts, proposed updates, review packets, and approval records; the human performs any actual send, publication, purchase, authoritative-record update, or production action outside the course workflow. A later advanced lab may introduce live external execution only with facilitator review and a separately tested control model.
+
 ---
 
 # Part I — Preparation
