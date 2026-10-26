@@ -6,6 +6,10 @@ M1 — Find the Work, Build the First Employee
 
 Version 1.0
 
+## Entry Ramp v1 status
+
+This package is governed by the [M1 Entry Ramp v1 Retrofit](ENTRY-RAMP-V1-RETROFIT.md), which establishes the Hermes Desktop/Conductor reference path, exact evidence-map paths, cohort-one draft/proposal boundary, and required manual practice run. Use that addendum before distributing any older M1 worksheet, guide, skill, demo, or template.
+
 ## Intended folder structure
 
 ```text
