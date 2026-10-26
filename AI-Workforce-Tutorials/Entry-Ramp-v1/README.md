@@ -50,4 +50,5 @@ Both knowledge-work and operational workflows are supported. All live external o
 - [M0 Opportunity Discovery](../M0-Opportunity-Discovery/README.md)
 - [M0.5 Hermes Desktop onboarding](../M0.5-Hermes-Desktop-Onboarding/README.md)
 - [M1 Entry Ramp retrofit](../M1-First-AI-Employee/ENTRY-RAMP-V1-RETROFIT.md)
+- [Pilot feedback form and release gate](PILOT-FEEDBACK-AND-RELEASE-GATE.md)
 - [Conductor distribution](../../hermes-profiles/ai-workforce-conductor/README.md)
