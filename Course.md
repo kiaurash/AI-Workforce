@@ -29,6 +29,12 @@ By the end, each learner has a workforce that:
 
 **Success is not agent count.** A learner may pass with one Builder if that is the safest and most valuable design.
 
+### Supported workflow scope
+
+The course supports both **knowledge-work** and **operational** workflows from the first cohort. Examples include research synthesis, meeting and project reporting, client intake, sales follow-up preparation, internal operations, and project management.
+
+Operational authenticity does not remove governance: learner systems may prepare real drafts, evidence packets, proposed updates, and approval records, while consequential actions remain subject to the learner's defined human approval boundary.
+
 ---
 
 ## 2. Design principles
