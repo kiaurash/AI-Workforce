@@ -16,6 +16,7 @@ A fresh learner must be able to:
 
 ```text
 ai-workforce/
+├── workspace-rules.md
 ├── discovery/
 │   ├── opportunity-map.md
 │   └── workflow-safety-triage.md

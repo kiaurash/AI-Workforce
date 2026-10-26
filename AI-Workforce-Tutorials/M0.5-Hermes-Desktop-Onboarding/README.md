@@ -12,7 +12,7 @@ Passing one gate does not pass the other. A working chat is not proof of a worki
 ## Learner materials
 
 - [M0.5 Learner Workbook](learner/M0.5-Workbook.md)
-- [Starter workspace](starter-workspace/README.md)
+- [Entry Ramp v1 capstone workspace](../Entry-Ramp-v1/starter-workspace/ai-workforce/README.md)
 - [AI Workforce Conductor distribution](../../hermes-profiles/ai-workforce-conductor/README.md)
 
 ## Facilitation rule
@@ -23,9 +23,11 @@ Use the Windows-first Hermes Desktop path as the reference implementation. Claud
 
 Each learner leaves M0.5 with:
 
-1. `starter-workspace/outputs/commitments.md`, directly inspected against the source transcript;
+1. `outputs/commitments.md` in the Entry Ramp v1 `ai-workforce/` workspace, directly inspected against the source transcript;
 2. a completed readiness table in the workbook;
 3. a Conductor activation entry in `profiles/role-activation-log.md`; and
 4. a blocked run manifest that proves the Conductor did not invent a missing downstream artifact.
+
+Gate B also requires local model/provider access for the newly imported Conductor profile and one ordinary Conductor chat response before the safe-stop test.
 
 The learner does not create Builder, Reviewer, or Observer Bots during M0.5. Those roles are earned and activated progressively in later modules.
