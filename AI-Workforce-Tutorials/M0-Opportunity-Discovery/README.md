@@ -13,6 +13,20 @@ The learner saves two files in the capstone repository:
 
 The learner then selects one safe representative input at `inputs/representative-input.md` and writes a learner-specific cohort-one action boundary at `governance/cohort-one-action-boundary.md`.
 
+## Run M0 as an interactive Socratic tutorial
+
+1. Open Hermes Desktop and select the imported **AI Workforce Conductor** Bot.
+2. Open its canonical Bot Chat with the course repository open as the project workspace.
+3. Start the installed skill with:
+
+   ```text
+   /m0-opportunity-discovery-tutor
+   ```
+
+   Or say: **“Start the M0 Socratic tutorial. Ask one question at a time and help me save the required M0 artifacts.”**
+4. Answer one question at a time. The tutor guides value, scope, human authority, safety triage, representative input, evidence, and artifact verification; it does not choose the learner's workflow or perform M0.5/M1 work.
+5. Before leaving M0, open the four saved repository artifacts yourself. A chat claim is not proof of completion.
+
 ## Materials
 
 - [Learner workbook](learner/M0-Workbook.md)
