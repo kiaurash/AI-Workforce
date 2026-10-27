@@ -56,11 +56,12 @@ M1-First-AI-Employee/
     └── m1-first-ai-employee-socratic-tutor/
         ├── SKILL.md
         └── references/
+            ├── m1-contract-field-guide.md
             ├── m1-misconception-map.md
             └── m1-diagnostic.md
 ```
 
-The Conductor profile carries the runtime copy of the tutor at `hermes-profiles/ai-workforce-conductor/skills/m1-first-ai-employee-tutor/`. The two `references/` files in the package are canonical. When either changes, update the Conductor copy in the same commit.
+The Conductor profile carries the runtime copy of the tutor at `hermes-profiles/ai-workforce-conductor/skills/m1-first-ai-employee-tutor/`. The three `references/` files in the package are canonical. When either changes, update the Conductor copy in the same commit.
 
 ## The 60-minute shape
 
@@ -118,7 +119,7 @@ Open the AI Workforce Conductor's canonical Bot Chat. The M1 tutor skill starts 
 
 ### Builder
 
-The Builder reads only `inputs/representative-input.md`, writes only `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`, updates the workshop manifest, and stops for human review.
+The Builder reads only its own contract (`employees/first-employee.md`, read-only) and `inputs/representative-input.md`, writes only `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`, updates the workshop manifest, and stops for human review.
 
 ## Important operating distinction
 

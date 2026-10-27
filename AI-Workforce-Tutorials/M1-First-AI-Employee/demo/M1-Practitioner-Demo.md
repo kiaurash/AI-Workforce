@@ -14,7 +14,7 @@ The "flawed result" in Part B and the "expected corrected outcome" in Part F are
 ## Preparation
 
 1. Copy `demo/fixtures/m1-demo-meeting.md` into the demo workspace as `inputs/demo-meeting.md`. The fixture is a fictional refund-delays meeting that learners have not seen. Do not use the M0.5 `sample-meeting.md`; learners already processed it.
-2. The demo Builder can read only the designated workspace.
+2. The demo Builder may read only its saved contract and the fixture. Save the Part D contract as `employees/first-employee.md` in the demo workspace.
 3. Keep the fixture's answer key out of sight until learners inspect the output.
 
 ## Part A — The naive assignment (about 1 minute)
@@ -55,7 +55,7 @@ Wait. Let learners find at least one fault before you name any. Prompts if they 
 
 **Employee:** Meeting Commitment Extractor  
 **Mission:** Turn a transcript into an evidence-linked record of confirmed commitments.  
-**Authorized input:** `inputs/demo-meeting.md`  
+**Authorized input:** this contract (`employees/first-employee.md`, read-only) and `inputs/demo-meeting.md`  
 **Permitted actions:** Read the transcript; write one proposed Markdown register and one receipt.  
 **Prohibited actions:** Edit the transcript, update any tracker, contact anyone, invent facts, or treat suggestions as approved work.  
 **Evidence rule:** Every row carries owner, action, final agreed due date if one exists, and a supporting quotation.  
@@ -69,7 +69,7 @@ Wait. Let learners find at least one fault before you name any. Prompts if they 
 
 > You are a Meeting Commitment Extractor.
 >
-> Read only inputs/demo-meeting.md.
+> Follow the contract in employees/first-employee.md. Read only that file and inputs/demo-meeting.md.
 >
 > Produce a Markdown table of confirmed commitments with columns: Owner, Commitment, Final agreed due date, Supporting quote.
 >

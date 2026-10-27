@@ -15,7 +15,7 @@ Repository artifacts are the evidence of completion. A chat message is not.
 
 Workflow: [name]
 
-The Builder may read: [exact paths]
+The Builder may read: [employees/first-employee.md (read-only) and the representative input path]
 
 The Builder may write: [exact paths: proposal and receipt only]
 
@@ -44,13 +44,13 @@ Owner: [Learner]
 [What starts the work?]
 
 ## Authorized input
-[Exact path(s): inputs/representative-input.md]
+[Exact paths: employees/first-employee.md (this contract, read-only) and inputs/representative-input.md]
 
 ## Permitted actions
-[Read the authorized input. Write the proposal and the receipt.]
+[Read this contract and the authorized input. Write the proposal and the receipt.]
 
 ## Prohibited actions
-[Edit sources. Contact anyone. Use external systems. Update authoritative records. Invent facts.]
+[Edit sources or this contract. Contact anyone. Use external systems. Update authoritative records. Invent facts.]
 
 ## Required output
 File: outputs/first-proposal.md

@@ -18,7 +18,7 @@ Use the [Entry Ramp v1 evidence map](../Entry-Ramp-v1/README.md). M1 must create
 - `runs/m1-first-run-review.md`
 - `governance/cohort-one-action-boundary.md`
 
-The Builder may read only the designated representative input and write only the proposed artifact plus receipt. It may not send, publish, purchase, update authoritative records, or use external systems.
+The Builder may read only its own contract (`employees/first-employee.md`, which it may not edit) and the designated representative input, and write only the proposed artifact plus receipt. The contract must be readable by the Builder, otherwise it cannot govern the run. It may not send, publish, purchase, update authoritative records, or use external systems.
 
 ## In-session minimum gate
 

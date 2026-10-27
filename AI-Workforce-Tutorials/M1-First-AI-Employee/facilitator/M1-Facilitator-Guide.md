@@ -57,7 +57,7 @@ The architecture proposal listed eight session outcomes. This table shows where 
 
 ### Builder (a constrained action, not a specialist Bot)
 
-- Reads only `inputs/representative-input.md`.
+- Reads only its own contract (`employees/first-employee.md`, read-only) and `inputs/representative-input.md`.
 - Writes only `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`, and updates `runs/m1-workshop-manifest.md`.
 - Takes no external action and stops for human review.
 
@@ -135,7 +135,7 @@ Second challenge: "Would this output still be valuable if you never built the re
 
 Give a two-minute framing of the autonomy ladder (Prompt, Skill, Bounded employee, Coordinated workforce, Recurring governed operation). Stress that these are teaching modes, not mandatory stages, and that autonomy and specialization are separate decisions. Today's target is a bounded employee.
 
-Learners draft `employees/first-employee.md` with the tutor. Required fields: mission, trigger, authorized input, permitted actions, prohibited actions, required output and path, evidence and uncertainty rules, cohort-one approval boundary, completion criteria.
+Learners draft `employees/first-employee.md` with the tutor, which asks one field at a time using `references/m1-contract-field-guide.md`. Required fields: mission, trigger, authorized input, permitted actions, prohibited actions, required output and path, evidence and uncertainty rules, cohort-one approval boundary, completion criteria.
 
 Contract challenge: "What could the Builder do incorrectly while technically following this contract, and what one rule would reduce that risk?"
 

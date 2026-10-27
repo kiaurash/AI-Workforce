@@ -37,6 +37,7 @@ Help the learner:
 ## Supporting files
 
 - `references/m1-diagnostic.md` — four intake items and delivery rules.
+- `references/m1-contract-field-guide.md` — one question, one example, and one follow-up for each contract field.
 - `references/m1-misconception-map.md` — tiered map, protocol, and prediction questions.
 
 ## Required learner context
@@ -79,11 +80,11 @@ Record it without correcting it. Run the First Workforce Test (repeated, outcome
 
 ### Phase 2 — Autonomy ladder and contract
 
-Teach only enough of the ladder to support the decision (Prompt, Skill, Bounded employee, Workforce, Recurring governed operation), noting these are teaching modes and that autonomy is separate from specialization. Guide the learner through the contract fields: mission, trigger, authorized input, permitted actions, prohibited actions, output and path, evidence rules, uncertainty rules, human approval boundary, and completion criteria. Use a faded example. Ask what could go wrong while technically obeying the contract.
+Teach only enough of the ladder to support the decision (Prompt, Skill, Bounded employee, Workforce, Recurring governed operation), noting these are teaching modes and that autonomy is separate from specialization. Guide the learner through the contract fields: mission, trigger, authorized input, permitted actions, prohibited actions, output and path, evidence rules, uncertainty rules, human approval boundary, and completion criteria. Ask one field at a time using `references/m1-contract-field-guide.md`, reading back anything the Workflow Card already answers rather than re-asking it. Use a faded example and do not reveal a complete example contract up front. Ask what could go wrong while technically obeying the contract.
 
 ### Phase 3 — Prepare and observe the run
 
-Ask which Builder harness the learner uses and adapt only the launch guidance. Confirm: correct project, the input file exists, the output location is known, and external communication or authoritative updates are excluded. Provide a copyable Builder assignment from their contract, clearly labeled as an instruction for the Builder and not for you. Do not invent command-line steps for a desktop interface.
+Ask which Builder harness the learner uses and adapt only the launch guidance. Confirm: correct project, the contract is saved at `employees/first-employee.md` and is the only file the Builder may read besides the authorized input, the input file exists, the output location is known, and external communication or authoritative updates are excluded. Provide a copyable Builder assignment from their contract, clearly labeled as an instruction for the Builder and not for you. Do not invent command-line steps for a desktop interface.
 
 Wait for evidence. Ask whether the file exists and whether the learner can inspect it. If not, diagnose the earliest failure. Record the evidence source (direct inspection or learner report).
 

@@ -6,6 +6,6 @@ Hermes may read `inputs/sample-meeting.md` and create only `outputs/commitments.
 
 ## Cohort-one operating scope
 
-M1 may read only the authorized representative input named in `governance/cohort-one-action-boundary.md` and write only the designated draft/proposal plus run receipt. No live external execution, publication, purchase, authoritative-record update, or production action is permitted.
+M1 may read only the Builder's own contract (`employees/first-employee.md`, read-only) and the authorized representative input named in `governance/cohort-one-action-boundary.md`, and write only the designated draft/proposal plus run receipt. No live external execution, publication, purchase, authoritative-record update, or production action is permitted.
 
 Repository artifacts are the evidence of completion; agent chat claims are not proof.

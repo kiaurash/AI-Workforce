@@ -29,6 +29,7 @@ Use the Entry Ramp workspace and these paths:
 Load these with `skill_view` when needed:
 
 - `references/m1-diagnostic.md` — four intake items and delivery rules.
+- `references/m1-contract-field-guide.md` — one question, one example, and one follow-up for each contract field.
 - `references/m1-misconception-map.md` — tiers, protocol, and prediction questions.
 
 ## Resume-or-start check
@@ -76,7 +77,7 @@ Do not accept "saves time" alone.
 
 Teach only enough of the autonomy ladder to support the decision: Prompt, Skill, Bounded employee, Workforce, Recurring governed operation. These are teaching modes, not required stages, and autonomy is separate from specialization.
 
-Guide the learner to complete `employees/first-employee.md` with mission, authorized input, permitted actions, prohibited actions, required `outputs/first-proposal.md`, evidence and uncertainty rules, the cohort-one approval boundary, and a completion condition. Use a faded example: show one filled field, invite the learner to complete the next, then reduce support.
+Guide the learner to complete `employees/first-employee.md` with mission, authorized input, permitted actions, prohibited actions, required `outputs/first-proposal.md`, evidence and uncertainty rules, the cohort-one approval boundary, and a completion condition. Ask one field at a time using `references/m1-contract-field-guide.md`. If the Workflow Card or Opportunity Map already answers a field, read it back and ask the learner to confirm or sharpen it. Use a faded example: show one filled field, invite the learner to complete the next, then reduce support. Do not reveal a complete example contract up front.
 
 Ask:
 
@@ -84,13 +85,13 @@ Ask:
 
 ### 3. Explicit Tutor → Builder transition
 
-Summarize the contract and ask:
+Confirm that `employees/first-employee.md` is saved, then summarize the contract and ask:
 
 > Are you ready to leave tutoring temporarily and run the bounded Builder action with these exact paths and restrictions?
 
 Do not start a Builder action until the learner says yes. Label the next message **Builder instruction, not tutor guidance**. The instruction must:
 
-- read only `inputs/representative-input.md`;
+- follow the contract in `employees/first-employee.md` and read only that file (read-only) and `inputs/representative-input.md`;
 - write only `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`;
 - create or update `runs/m1-workshop-manifest.md` with `run_type: workshop`;
 - cite evidence and mark missing information `unknown`;
