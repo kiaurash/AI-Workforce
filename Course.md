@@ -1,6 +1,6 @@
 # Build Your AI Workforce with Hermes
 
-**Version:** 4.0 — Hermes Desktop reference design
+**Version:** 4.1 — Hermes Desktop reference design (draft revision: optional roles, minimum viable outcomes, value checkpoints)
 
 **Status:** Facilitator-review draft
 
@@ -43,10 +43,11 @@ Operational authenticity does not remove governance: learner systems may prepare
 2. **Build early.** By M1, learners run a bounded task and inspect the saved artifact.
 3. **One learner-owned system.** The same repository and real workflow progress through all modules.
 4. **Evidence before confidence.** A fluent response or a chat claim is never proof that a file exists, a rule worked, or a workflow is reliable.
-5. **Specialization must earn its place.** Add a separate role only for a clear benefit in expertise, context, permissions, independent verification, or justified parallelism.
+5. **Specialization must earn its place.** Add a separate role only for a clear benefit in expertise, context, permissions, independent verification, or justified parallelism. Every role is demonstrated in an experiment, but keeping it is a decision the learner justifies with evidence; a well-evidenced decision not to adopt a role is a successful result.
 6. **Human authority precedes autonomy.** Agents can research, draft, and propose; humans retain consequential decisions, external commitments, money, sensitive people judgments, and production promotion.
 7. **Repository-first operation.** Bot messages and agent responses coordinate work; saved contracts, artifacts, handoffs, review decisions, and approval records are authoritative.
 8. **Improve from comparable evidence.** Observe, propose, test, compare, approve or reject, then monitor. Never let an observer self-promote a change.
+9. **Structure must pay for itself.** Reliability, specialization, and governance have costs in time, setup, and attention. Each module asks whether the addition improved the workflow enough to justify its cost, and “remove it” or “simplify it” is a legitimate answer.
 
 ---
 
@@ -83,9 +84,9 @@ The staged topology is:
 | --- | --- | --- |
 | M0.5–M1 | Conductor acting as a bounded Builder | prove one safe useful workflow first |
 | M2 | Builder plus a reusable skill | repetition earns procedural memory |
-| M3 | Conductor → Builder → Reviewer | independent challenge earns a second role |
-| M4–M5 | governed Builder–Reviewer operation | controls and knowledge require operational evidence |
-| M6 | add Observer | improvement is separated from production execution |
+| M3 | Conductor → Builder → Reviewer, run as an experiment | independent challenge is demonstrated; it is kept only if the evidence supports it |
+| M4–M5 | governed operation using the roles the learner kept | controls and knowledge require operational evidence |
+| M6 | Observer, run as an experiment | improvement is separated from production execution; adopting it is the learner's decision |
 
 ### 3.4 Hermes mechanisms
 
@@ -94,6 +95,24 @@ The staged topology is:
 - **`delegate_task`:** fresh-context, short-lived child work, appropriate for temporary source checks or bounded parallel research. It does **not** invoke an existing named Builder/Reviewer profile and does not create a hard filesystem, credential, or tool-permission boundary.
 - **Cron routines:** optional recurring operation after a manual workflow is proven. A scheduled job must write repository evidence and preserve the same approval rules.
 - **Skills:** reusable procedures. A skill is not a workforce itself; a Conductor skill can initiate the repository-first protocol among earned roles.
+
+### 3.5 Demonstrate every role; keep only what earns its place
+
+Every learner experiences each role's behavior, but no learner is required to keep a role permanently. For the Builder (M2), Reviewer (M3), and Observer (M6), the learner runs a **temporary role experiment** and then records a **Role Decision Record**.
+
+An experiment is complete when the learner has:
+
+1. run the role's activation test (§15) and a real task under an explicit contract;
+2. recorded what the role caught, missed, or produced that the existing setup would not have, and what it cost in time, setup, and extra files;
+3. considered a simpler alternative, such as a skill, a checklist, or human review; and
+4. recorded a decision: **adopt**, **do not adopt**, or **defer pending more evidence**, with the evidence that would change the decision.
+
+Rules:
+
+- **Adopting and declining receive equal credit.** Assessment scores the reasoning and the evidence, not the outcome. A learner who keeps a Reviewer and a learner who drops it can both reach Level 3.
+- **Declining must be evidence-based.** “I did not have time to try it” is not a decision. A decision requires a real run of the role and a recorded comparison.
+- **The activation log records the result.** A role that is not adopted is logged as `not adopted` or `deferred` in `profiles/role-activation-log.md`, with a link to the Role Decision Record. The learner's capstone then uses only the roles they kept; the authority matrix, practice runs, and later modules cover those roles.
+- **A learner may keep a role conditionally**, for example by using review only for high-risk runs, and must state the condition.
 
 ---
 
@@ -116,7 +135,64 @@ Every formal workshop follows this pattern:
 - 5 min: short retrieval prompt and guiding question;
 - 33 min: guided work on the learner’s capstone;
 - 10 min: peer clinic using actual evidence;
-- 5 min: reflection, recorded next action, and module gate.
+- 5 min: reflection, value checkpoint (§4.2), recorded next action, and module gate.
+
+### 4.1 Minimum viable outcome for each workshop
+
+Each workshop is designed around one **minimum viable outcome (MVO)**: the smallest evidence-backed result that proves the module's learning milestone. The MVO is the in-session gate. Items outside it are stretch work or between-session work, and a learner who reaches the MVO has met the module gate even if other artifacts remain open.
+
+| Module | Must happen in the hour (MVO) | May move to between-session work | Evidence that counts as legitimate blocked progress |
+| --- | --- | --- | --- |
+| M1 | One saved output from a contract-governed run, inspected against its source with one recorded limitation, and an explanation of the retained human decision | a rerun, the fuller workforce Blueprint, and the first practice run | the drafted contract; direct blocker evidence; and an inspected facilitator-demonstration output with one recorded limitation |
+| M2 | One skill extracted and tested on a second comparable input, with a written comparison and a Role Decision Record for the Builder | creating and activating a separate Builder profile, if the learner chooses one | the skill draft; the first-run artifacts; and blocker evidence for the second run |
+| M3 | One review packet, one Reviewer disposition, and one resolution record, starting from a prepared Builder proposal and receipt if the learner's own are not ready | a second review cycle and the Role Decision Record write-up | the packet as assembled so far; blocker evidence; and the earliest failed step |
+| M4 | An authority matrix for one workflow and one adversarial test with its observed result recorded (the stop test is mandatory and is not movable) | the full evaluation set, the scorecard, and the recovery record | the matrix; the adversarial case as written; and what the learner observed when running it |
+| M5 | One sourced candidate knowledge record with provenance and a human promote, defer, or reject decision | a conflict and obsolescence test beyond the first, and further retrieval experiments | the record draft; the provenance fields completed; and blocker evidence |
+| M6 | One Observer proposal or a correct `collect more evidence` disposition, plus a baseline and candidate comparison on at least two comparable cases | monitoring plan and isolated branch testing | the evidence window assembled; the Observer's output or blocker; and the learner's reasoning for the disposition |
+
+**Legitimate blocked progress** always includes all three of the following, and a chat claim never substitutes for any of them:
+
+1. a run manifest or equivalent status record;
+2. direct evidence of the earliest blocker (a path, the error text, or the observed behavior), classified as a configuration, permission, tool, task, or quality failure; and
+3. one attempted recovery step and its result.
+
+A learner who submits all three has met the gate for the blocked state, and the catch-up clinic applies. A learner without blocker evidence, or with no attempted recovery, has not.
+
+Where an MVO relies on facilitator-supplied material, the material is labeled as supplied in the learner's repository, and the learner does not represent it as their own run evidence.
+
+### 4.2 Value checkpoint (every module from M1)
+
+Every workshop includes a short **value checkpoint** inside the 5-minute reflection. It uses the same question each time:
+
+> Did what we added in this module make the workflow better enough to justify what it cost?
+
+The learner appends one entry per module to a single file, `runs/value-checkpoint.md`, using this form:
+
+| Measure | Before this module | After this module |
+| --- | --- | --- |
+| Human time per run | estimate or range | observed range |
+| Output usefulness | what the intended recipient needs | what the recipient or learner judged |
+| Rework before relying on the output | typical corrections | corrections recorded |
+| Overhead added | none | setup, checking, and maintenance minutes |
+| **Judgment** | | keep, simplify, or remove, with one sentence of evidence |
+
+Rules:
+
+- Estimates and ranges are acceptable. Label each figure as an estimate or as measured, and do not manufacture precision from one or two runs.
+- “Not worth it” is a valid judgment and may justify removing a role, a skill, or a control. For a control that guards a consequential action, the learner must name the risk it covers before removing it; the human approval boundary is never removed on cost grounds.
+- Assessment checks that the judgment cites the learner's own run evidence. It does not grade the numbers.
+- The M0 Opportunity Map or, if M0 was skipped, the M1 workflow card supplies the baseline estimate: how often the work happens, how long it takes, and who relies on it.
+
+Module-specific prompts:
+
+| Module | Value prompt |
+| --- | --- |
+| M1 | Is delegating this slice better than doing it myself or using a one-off prompt? |
+| M2 | Did the skill reduce correction or time on the repeat run? |
+| M3 | Did the Reviewer catch anything that justified its cost? |
+| M4 | Are the controls proportionate to the risk they cover? |
+| M5 | Did retrieving the record improve a task enough to justify keeping it current? |
+| M6 | Did the change improve the baseline by more than it cost to test, and without regressions? |
 
 ### Required between-session practice runs
 
@@ -140,6 +216,7 @@ M0 is discovery, not architecture construction. The learner examines actual work
 
 - desired future human role;
 - candidate workflows, constraints, and value hypotheses;
+- a rough baseline for the recommended workflow (frequency, time per occurrence, and who relies on it), labeled as an estimate;
 - a recommended first independently useful workflow;
 - provisional AI responsibilities;
 - responsibility and data-sensitivity boundaries;
@@ -206,17 +283,20 @@ The learner does not create Builder, Reviewer, or Observer in M0.5.
    - evidence and uncertainty rules;
    - human approval boundary; and
    - completion criteria.
-4. Run the bounded Builder task in the learner’s workspace.
+4. Run the bounded Builder task in the learner’s workspace. The Builder may read only its own contract (read-only) and the designated input, and write only the proposed artifact and receipt.
 5. Inspect the saved result against source material, record one defect/unknown/edge case, revise one rule if justified, and rerun if practical.
-6. Create a provisional Workforce Blueprint distinguishing human decisions, employee work, reusable skills, tools, and only justified future roles.
+6. Create a Blueprint Lite from the run evidence in `01-workforce-blueprint.md`: a responsibility sort (employee, skill, tool, or human), an authority map (autonomous, reviewed, approval-required, or prohibited), and a starting topology. Candidate future roles are recorded as hypotheses only.
 
 ### M1 evidence and gate
 
-- `01-workforce-blueprint.md`;
+- `01-workforce-blueprint.md` (Blueprint Lite);
 - `employees/first-employee.md`;
-- one representative input;
-- one saved output;
-- `runs/first-run-review.md` with evidence of verification and one observed limitation.
+- `inputs/representative-input.md`;
+- `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`;
+- `runs/m1-first-run-review.md` with evidence of verification and one observed limitation; and
+- the first `runs/value-checkpoint.md` entry.
+
+The in-session gate is the minimum viable outcome in §4.1. The package under `AI-Workforce-Tutorials/M1-First-AI-Employee/` governs the detailed file paths.
 
 A saved artifact is necessary but insufficient: the learner must explain the value, boundary, limitation, and retained human decision.
 
@@ -235,7 +315,7 @@ Show a generalist handling conflicting research and review instructions. Improve
 1. Review the M1 run review and select one procedure that recurs or required non-trivial correction.
 2. Extract it into a `SKILL.md` with a clear trigger, inputs, steps, evidence/quality checks, escalation rule, and completion rule.
 3. Repeat the workflow with comparable input and compare the two runs.
-4. Record the decision: remain with one role, or create a separate Builder profile because the benefit is demonstrable.
+4. Record a Role Decision Record (§3.5) for the Builder: remain with one role, or create a separate Builder profile because the benefit is demonstrable.
 5. If a Builder profile is created, perform its activation test: read only the designated input, write only the proposal plus receipt, and record the human activation decision.
 
 ### M2 evidence and gate
@@ -243,8 +323,9 @@ Show a generalist handling conflicting research and review instructions. Improve
 - one tested `SKILL.md`;
 - repeat-run comparison;
 - updated employee contract and tool/path boundaries;
-- Builder activation log, if a separate Builder is used; and
-- written rationale for or against specialization.
+- Builder activation log, if a separate Builder is used;
+- a Role Decision Record for the Builder (adopt, do not adopt, or defer), which receives equal credit for any of the three when the reasoning is evidence-based; and
+- a `runs/value-checkpoint.md` entry.
 
 Do not create a second role merely because the curriculum contains one.
 
@@ -254,7 +335,7 @@ Do not create a second role merely because the curriculum contains one.
 
 **Anchor question:** *How can two roles collaborate without carrying each other’s unstated assumptions?*
 
-**Core topology:** Conductor → Builder → Reviewer.
+**Core topology:** Conductor → Builder → Reviewer, run as a temporary role experiment (§3.5). The learner sees what independent review does and then decides whether it earns a permanent place in their workflow.
 
 ### Practitioner demonstration
 
@@ -263,7 +344,7 @@ Show a Builder producing a plausible artifact and a deficient handoff. Show a do
 ### Guided build
 
 1. The Conductor creates `runs/<run-id>/` and a manifest.
-2. The Builder saves its proposed artifact and run receipt before signaling the Conductor.
+2. The Builder saves its proposed artifact and run receipt before signaling the Conductor. If the learner's own Builder proposal and receipt are not ready, the facilitator supplies a prepared pair, labeled as supplied, and the learner begins at step 3.
 3. The Conductor creates `handoffs/review-packet/` containing only:
    - employee contract;
    - named source input(s) or read-only copies;
@@ -276,6 +357,7 @@ Show a Builder producing a plausible artifact and a deficient handoff. Show a do
    - **escalate to human**.
 6. The decision cites packet evidence, records uncertainty, and does not alter the proposal, source, contract, memory, skills, approval records, or external systems.
 7. The learner resolves the decision without silently overwriting the original proposal.
+8. The learner records a Role Decision Record for the Reviewer: keep it permanently, keep it conditionally (for example, for high-risk runs only), or do not adopt it, citing what the review caught or missed and what it cost.
 
 ### M3 boundary lesson
 
@@ -287,8 +369,10 @@ A fresh `delegate_task` conversation provides conversational isolation but not h
 - Builder proposal and receipt;
 - minimal review packet;
 - `review-decision.md` with cited evidence;
-- decision-resolution record; and
-- Reviewer activation log.
+- decision-resolution record;
+- Reviewer activation log, with the activation decision recorded as `adopted`, `not adopted`, or `deferred`;
+- Role Decision Record for the Reviewer (may be completed between sessions); and
+- a `runs/value-checkpoint.md` entry.
 
 The Reviewer’s acceptance never authorizes a consequential action; the human approval boundary remains intact.
 
@@ -302,7 +386,7 @@ The Reviewer’s acceptance never authorizes a consequential action; the human a
 
 ### Guided build
 
-1. Define an authority matrix for every action: propose, review, approve, execute, and log.
+1. Define an authority matrix for every action, covering the roles the learner kept and the human: propose, review, approve, execute, and log.
 2. Specify at least one meaningful approval boundary—for example, external communication, publishing, purchase, authoritative-record change, or sensitive judgment.
 3. Create a small evaluation set containing ordinary, ambiguous, and adverse inputs.
 4. Run the workflow and record checkable outcomes: success, unsupported claims, omissions, human corrections, tool failures, retries, approval events, and recovery.
@@ -320,6 +404,8 @@ The Reviewer’s acceptance never authorizes a consequential action; the human a
 - controlled recovery record.
 
 Core measures may include first-pass success, evidence completeness, correction count, unresolved uncertainty, and time/usage when available. Do not manufacture precision from too few runs.
+
+The adversarial stop test is mandatory. If the test shows that the workflow does **not** stop, that is a valid and instructive result: the learner records a failed control, the corrective action, and the retest, and does not describe the boundary as enforced until it has stopped. Consequential actions in cohort one remain simulated or human-performed.
 
 ---
 
@@ -355,6 +441,8 @@ Core measures may include first-pass success, evidence completeness, correction 
 
 Profiles may retain curated role context, but the repository keeps course evidence and governed organizational knowledge reviewable.
 
+No advanced retrieval infrastructure is required. Retrieval may be a deliberate file lookup in `knowledge/approved/`; databases, full-text search, or vector retrieval belong to the optional advanced track.
+
 ---
 
 ## 12. M6 — Observer Agile Loop: Improve Without Unchecked Self-Modification
@@ -376,7 +464,7 @@ Otherwise its required disposition is **collect more evidence**.
 
 ### Guided build
 
-1. Activate the Observer using deliberately sufficient or insufficient approved evidence.
+1. Run the Observer as a temporary role experiment (§3.5), using deliberately sufficient or insufficient approved evidence.
 2. Inspect whether it writes one proposal or correctly returns `collect more evidence`.
 3. Choose one repeated issue or high-severity failure.
 4. Form a narrow improvement hypothesis and propose one change to a contract or skill.
@@ -385,6 +473,9 @@ Otherwise its required disposition is **collect more evidence**.
 7. Compare baseline and candidate outcomes and check regressions.
 8. Human approves, rejects, or defers the change; record rationale.
 9. If approved, apply the change deliberately and monitor subsequent runs.
+10. Record a Role Decision Record for the Observer: keep it, use it only on a schedule or trigger the learner names, or do not adopt it.
+
+If the learner's own approved evidence is thinner than the threshold, `collect more evidence` is the correct disposition, and the facilitator may supply a prepared historical case pack so the baseline and candidate comparison can still be practiced. Prepared cases are labeled as supplied and never count as the learner's own run evidence.
 
 ### Required proposal schema
 
@@ -407,7 +498,9 @@ Recommended human decision: test / defer / escalate
 - proposal or `collect more evidence` disposition;
 - baseline/candidate comparison;
 - regression evidence;
-- human approval/rejection/deferment decision; and
+- human approval/rejection/deferment decision;
+- Role Decision Record for the Observer;
+- a `runs/value-checkpoint.md` entry; and
 - monitoring plan.
 
 **Anti-pattern demonstration:** An Observer sees one ordinary imperfect run, proposes a sweeping rewrite, and is rejected because the evidence window is too thin.
@@ -459,6 +552,8 @@ The starter kit supplies editable versions of:
 - Authority Matrix;
 - Approval Log;
 - Role Activation Log;
+- Role Decision Record;
+- Value Checkpoint entry;
 - Knowledge Record;
 - Knowledge Promotion Decision;
 - Observer Improvement Proposal; and
@@ -471,11 +566,13 @@ Each template must distinguish observed evidence from assumptions and must leave
 | Role | Required smoke test | Pass condition |
 | --- | --- | --- |
 | Conductor | expected downstream artifact is deliberately absent | creates manifest, records `blocked`, and does not invent completion |
-| Builder | designated input and output path | reads only the input; writes only proposed artifact plus receipt |
+| Builder | designated input and output path | reads only its own contract (read-only) and the designated input; writes only proposed artifact plus receipt |
 | Reviewer | minimal review packet | writes only evidence-cited disposition: accept, return, or escalate |
 | Observer | sufficient or insufficient approved historical evidence | writes one narrow proposal or correctly returns `collect more evidence` |
 
 Every result is logged with role, allowed paths/tools, test input, expected output, observed result, evidence inspected, defects/uncertainty, and human activation decision.
+
+A temporary role experiment (§3.5) still runs the role's activation test. The activation decision is `adopted`, `not adopted`, or `deferred`; a role that is not adopted keeps its log entry as evidence of the experiment.
 
 ---
 
@@ -499,25 +596,25 @@ Use actual learner artifacts rather than polished demonstrations. Peers ask:
 | 2 — Assisted application | completes familiar work with limited help; transfer is unproven |
 | 3 — Independent application | explains reasoning unaided and applies it to a new relevant case |
 
-Artifact production alone does not prove Level 3. Learners must defend their allocation of work, evidence, approval boundary, memory decision, and improvement decision.
+Artifact production alone does not prove Level 3. Learners must defend their allocation of work, evidence, approval boundary, memory decision, and improvement decision. For role decisions, Level 3 is available for adopting or for declining a role; what is assessed is whether the learner can explain the decision from run evidence and apply the same reasoning to a new case.
 
 ## 18. Final capstone assessment
 
 The learner demonstrates:
 
 1. the original human/business problem and independently valuable first workflow;
-2. the current role/skill architecture and why each role is justified;
+2. the current role/skill architecture, why each kept role is justified, and why any tested role was not adopted;
 3. one complete end-to-end run with inspectable repository evidence;
 4. one failed or incomplete run and controlled recovery;
 5. a meaningful human approval boundary and proof it stops work appropriately;
-6. measured performance evidence and limitations;
+6. measured performance evidence and limitations, and the value checkpoint record showing which additions were kept, simplified, or removed and why;
 7. one governed memory decision; and
 8. one evidence-backed, human-governed improvement decision.
 
 Assess five dimensions:
 
-- **Value:** Does the workflow solve a meaningful problem?
-- **Architecture:** Are roles and skills appropriately separated?
+- **Value:** Does the workflow solve a meaningful problem, and does the learner's evidence show that the added structure was worth its cost?
+- **Architecture:** Are roles and skills appropriately separated? A tested and justified decision not to adopt a role scores the same as adopting one.
 - **Reliability:** Can results and failures be checked?
 - **Governance:** Are authority boundaries explicit and operationally demonstrated?
 - **Improvement:** Can evidence support a bounded change decision without unchecked self-modification?
@@ -534,6 +631,8 @@ Before delivery, the facilitator must:
 - verify the Builder → Reviewer evidence packet and disposition workflow;
 - test an adversarial approval-stop case and controlled recovery;
 - prepare non-sensitive representative inputs and a fallback demonstration workspace;
+- prepare a labeled Builder proposal and receipt for the M3 fallback start and a labeled historical case pack for M6, and test M3 beginning at packet assembly;
+- prepare the Role Decision Record and Value Checkpoint templates and a worked example of a justified decision not to adopt a role;
 - ensure no core exercise requires paid API access beyond the learner’s chosen supported access path;
 - provide templates and a peer-help route; and
 - test Claude/Codex adapters separately before presenting them as supported alternatives.
