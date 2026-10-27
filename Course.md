@@ -632,6 +632,8 @@ The starter kit supplies editable versions of:
 
 Each template must distinguish observed evidence from assumptions and must leave unknown information explicitly unknown.
 
+The Role Decision Record (with a worked example of a justified decision not to adopt), Value Checkpoint, Learning Record, and Facilitator Blocker Attestation templates are in `AI-Workforce-Tutorials/Course-Templates/`.
+
 ## 15. Role activation tests
 
 | Role | Required smoke test | Pass condition |
@@ -706,7 +708,7 @@ Before delivery, the facilitator must:
 - decide and tell learners who may read the learning record;
 - prepare non-sensitive representative inputs and a fallback demonstration workspace;
 - prepare a labeled Builder proposal and receipt for the M3 fallback start and a labeled historical case pack for M6, and test M3 beginning at packet assembly;
-- prepare the Role Decision Record and Value Checkpoint templates and a worked example of a justified decision not to adopt a role;
+- review the Role Decision Record, Value Checkpoint, Learning Record, and Facilitator Blocker Attestation templates in `AI-Workforce-Tutorials/Course-Templates/`;
 - ensure no core exercise requires paid API access beyond the learner’s chosen supported access path;
 - provide templates and a peer-help route; and
 - test Claude/Codex adapters separately before presenting them as supported alternatives.

@@ -1,5 +1,5 @@
 name: ai-workforce-conductor
-version: 0.1.5
+version: 0.1.6
 description: "Course Conductor for governed AI-workforce learning"
 hermes_requires: ">=0.22.5"
 author: "Kia Uras"

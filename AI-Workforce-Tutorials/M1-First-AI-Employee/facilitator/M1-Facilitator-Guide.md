@@ -215,7 +215,7 @@ Return each learner to the prediction from Exercise 0:
 
 For credit toward LO-1, the justification must rest on responsibility, context, tools, permissions, verification, parallelism, or coordination cost, not on "it is another step". A well-reasoned answer of "one, for now" is a strong answer.
 
-Then record the next concrete action, explain the practice run and the Blueprint Studio, and have the learner state the module gate in their own words.
+Then have each learner write the three-line value checkpoint in `runs/value-checkpoint.md` (judgment, one observation, one uncertainty; "not worth it" is acceptable), record the next concrete action, explain the practice run and the Blueprint Studio, and have the learner state the module gate in their own words. After the workshop the Tutor sets one unaided transfer probe and records it in `learning/learning-record.md`.
 
 ## Facilitator watchpoints
 

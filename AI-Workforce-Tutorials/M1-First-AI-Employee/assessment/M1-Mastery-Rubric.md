@@ -47,6 +47,7 @@ For a prepared learner:
 - `employees/first-employee.md`.
 - `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`.
 - `runs/m1-first-run-review.md`.
+- `learning/learning-record.md` (written by the Tutor).
 - `01-workforce-blueprint.md` (Lite: responsibility sort, authority map, topology).
 - The opening headcount prediction and the learner's revised answer.
 - A short reflection.
@@ -192,7 +193,7 @@ Execution status: Completed / Partial / Blocked / Unverified
 
 Artifact location: [...]
 
-Intake diagnostic (learner's own record, `tier-3d`): [distractors chosen and confidence, from `runs/m1-first-run-review.md`]
+Intake diagnostic (learner's own record, `tier-3d`): [distractors chosen and confidence, from `learning/learning-record.md`]
 
 Summary given by learner: [...]
 

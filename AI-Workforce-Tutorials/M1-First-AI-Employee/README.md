@@ -93,7 +93,9 @@ ai-workforce/
 │   ├── m1-workshop-manifest.md      (run_type: workshop)
 │   ├── m1-first-run-receipt.md
 │   ├── m1-first-run-review.md
+│   ├── value-checkpoint.md
 │   └── m1-practice-manifest.md      (run_type: practice)
+├── learning/learning-record.md      (written by the Tutor only)
 └── governance/cohort-one-action-boundary.md
 ```
 

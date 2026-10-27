@@ -4,7 +4,7 @@ Shared design-time map for the M1 tutor. It is a **hypothesis space**, not a cla
 
 ## Rules for using this map
 
-- **There is no tier 3 here.** Tier 3 means one learner's own record. It is minted at run time, per learner, by the diagnostic (`tier-3d`) or by observation in the session (`tier-3v`), and it is recorded in that learner's own `runs/m1-first-run-review.md` under "Learning record". Never write learner evidence into this shared file.
+- **There is no tier 3 here.** Tier 3 means one learner's own record. It is minted at run time, per learner, by the diagnostic (`tier-3d`) or by observation in the session (`tier-3v`), and it is recorded in that learner's own `learning/learning-record.md`. Never write learner evidence into this shared file.
 - **Tier 1** — a repo or course source names the mistake itself. Once a specific learner exhibits it, the tutor may challenge it directly, using a predict-then-compare question on that learner's own run.
 - **Tier 2** — education or domain literature establishes it as common. None is claimed here; no external search was performed for this map. Add rows only with a citation.
 - **Tier 4** — inferred, no source. Quarantined. Use a prediction question that would expose it, but never challenge it head-on unless this learner shows it. Observed practitioner misconceptions also enter at tier 4 with their origin recorded.
