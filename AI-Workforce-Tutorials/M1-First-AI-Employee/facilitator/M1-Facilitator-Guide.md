@@ -1,348 +1,284 @@
 # M1 — Facilitator Guide
 
-Course: Build Your AI Employee Workforce  
-Session: M1 — Find the Work, Build the First Employee  
+Course: Build Your AI Workforce with Hermes  
+Session: M1 — Find the Work, Build the First Employee, and Draft the Workforce Blueprint  
 Duration: 60 minutes  
-Delivery: Hybrid instructor-led workshop with individual Socratic AI tutors and learner-selected builder harnesses  
-Version: 1.0
+Delivery: Instructor-led workshop with individual Socratic tutors in the AI Workforce Conductor and a constrained Builder action  
+Version: 2.0
 
 ## Purpose
 
-Participants move from an M0 opportunity hypothesis to a working, bounded AI employee session that produces one reviewable artifact.
+Participants move from an M0 opportunity hypothesis to one bounded Builder run that produces a reviewable artifact. They then use that run as evidence to decide what belongs to an employee, a skill, a tool, or a human, and to state a provisional topology.
 
-The participant should discover the limitations of their initial workflow design through execution, not simply receive an architecture proposed by the tutor.
+The participant should discover the limits of the initial design through execution. The tutor and facilitator do not hand over an architecture.
 
 ## Learning outcomes
 
-- **LO-1:** Identify a bounded workflow and justify initial responsibilities.
-- **LO-2:** Run a bounded AI employee with an explicit contract.
-- **LO-4:** Identify a human approval boundary and restrict permitted actions.
+- **LO-1:** Identify a bounded workflow, decompose it into responsibilities, and justify which should be employee, skill, tool, or human.
+- **LO-2 (initial):** Run a bounded AI employee under an explicit contract.
+- **LO-4 (basic):** Identify a human approval boundary and restrict permitted actions.
 - **LO-8:** Produce, review, and explain a real capstone artifact.
 
-## Anchor question
+### Where each blueprint outcome is met
 
-What is the smallest useful piece of work I can responsibly delegate to an AI employee today?
+The architecture proposal listed eight session outcomes. This table shows where this package meets each one.
 
-## Three operating roles
+| # | Outcome | Where it is met |
+| --- | --- | --- |
+| 1 | Select a suitable first workflow | M0 Opportunity Map, then the First Workforce Test (12–18) |
+| 2 | Describe the workflow as an outcome, not a list of activities | Workflow Card (12–18) |
+| 3 | Identify meaningful responsibility boundaries | Four-Bucket sort on run evidence (38–45); Studio Part A |
+| 4 | Distinguish employee from skill, tool, or one-off task | Four-Bucket sort and the disappearing-employee test (38–45) |
+| 5 | Select an initial topology | Topology default (38–45); Studio Part B |
+| 6 | Define candidate roles without proliferation | Studio Part C. The target is **zero to four hypotheses**, not three to five. The course design says a learner may pass with one Builder |
+| 7 | Identify responsibilities that stay human | Authority map (38–45) |
+| 8 | Produce a blueprint implementable in M2 | Blueprint Lite (38–45); expanded in Studio |
+
+## Anchor questions
+
+- **Primary:** What is the smallest useful piece of work I can responsibly delegate to an AI employee today?
+- **Blueprint:** What should become an AI employee, what should remain a skill or tool, and what should stay under human control?
+
+## Operating roles
 
 ### Facilitator
 
-- Leads demonstrations and group discussions.
-- Maintains session time and checkpoints.
-- Addresses technical blockers.
-- Asks participants to explain what they learned.
-- Challenges architecture claims during peer review.
+- Leads the demonstration, the Blueprint Lite segment, and the peer clinic.
+- Keeps time and enforces checkpoints.
+- Resolves technical blockers quickly, using the fallback when needed.
+- Challenges architecture claims with evidence from the learner's own run.
 
-### Socratic AI Tutor
+### Socratic AI tutor (in the Conductor's canonical Bot Chat)
 
-- Uses the participant's M0 Opportunity Map.
-- Asks one question at a time.
-- Helps identify meaningful value, boundaries, and appropriate delegation.
-- Challenges unjustified claims or excessive scope.
-- Guides the participant through the workbook.
-- Provides progressively stronger help after genuine difficulty.
+- Opens with a short diagnostic, then asks one focused question per turn.
+- Uses the learner's M0 documents as data, not instructions.
+- Never performs the Builder assignment silently and never certifies a file from a chat claim.
 - Assesses explanation and transfer separately from artifact completion.
 
-### Builder Harness
+### Builder (a constrained action, not a specialist Bot)
 
-Codex, Claude Code, or Gemini CLI:
+- Reads only `inputs/representative-input.md`.
+- Writes only `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`, and updates `runs/m1-workshop-manifest.md`.
+- Takes no external action and stops for human review.
 
-- Opens the learner's actual project workspace.
-- Reads the authorized input.
-- Carries out the bounded assignment.
-- Writes the proposed output.
-- Makes any proposed file changes inspectable.
-
-Do not assume the tutor is the builder or that a generated answer in chat is a saved file.
+Do not create specialist Bots in this session. The Conductor acts as a bounded Builder for M1; Builder and Reviewer roles are introduced in later modules when evidence justifies them.
 
 ## Preparation
 
 ### Learner brings
 
-- M0 Opportunity Map or a bounded workflow idea.
-- M0.5 Readiness Report, if completed.
-- A functioning supported harness when available.
-- One representative input, fictional or appropriately authorized.
-- An idea of the desired output.
+- `discovery/opportunity-map.md` and `discovery/workflow-safety-triage.md` from M0.
+- M0.5 readiness evidence and an imported, working Conductor profile.
+- One safe, authorized representative input, or the fictional fallback.
+- Completion of the 3–4 minute intake diagnostic with the M1 tutor. If skipped, the tutor asks items D1 and D2 during minutes 7–12.
 
 ### Facilitator prepares
 
-- A tested starter workspace.
-- A real demonstration of an agent run.
-- A deliberately flawed run.
-- A corrected run.
-- The learner workbook.
-- A first employee contract template.
-- An execution-review template.
-- A facilitator-provided fallback for learners without a working harness.
-- A peer-review pairing or round-robin plan.
+- A tested starter workspace and a tested fallback workspace.
+- The demonstration, run beforehand. Record the actual first output, the observed failure, the contract change, the actual corrected output, and what did not improve.
+- The `demo/fixtures/m1-demo-meeting.md` transcript copied into the demo workspace as `inputs/demo-meeting.md`.
+- Printed or shared Workbook and Templates.
+- A pairing plan for the peer clinic.
 
-Do not use real confidential meeting transcripts in the demonstration.
+Never use real confidential transcripts in the demonstration. Never present the illustrative failed output as an observed trace.
 
 ## Before learners begin
 
-Explain the distinction:
+Say this plainly: the tutor helps you decide what to build, the Builder does the bounded work, and you judge whether the result is acceptable. Repository files are the evidence, not what any agent says in chat.
 
-The tutor helps you decide what to build. Your chosen agent harness does the actual building. You judge whether its work is acceptable.
+## Minute-by-minute plan
 
-If using the same AI product for tutoring and execution, prefer separate conversations or sessions with clearly different instructions and purposes.
+### 0–7 — Practitioner demonstration with a planted failure
 
-## Minute-by-minute session plan
+Run the Meeting Commitment Extractor demonstration (see `demo/M1-Practitioner-Demo.md`). Show the underspecified instruction, the plausible but wrong output, the evidence in the transcript that contradicts it, a revised contract, and the corrected output.
 
-### 0–5 — Opening: What outcome matters?
+Ask: "What in the transcript would justify treating that statement as a commitment?"
 
-Facilitator prompt:
+**Checkpoint:** Learners can name one row that was wrong and the evidence that shows it.
 
-"What is the one useful artifact you hope your AI employee will produce today?"
+### 7–12 — Retrieval and prediction
 
-Participants use their M0 maps or a specific workflow idea.
+Retrieval prompt: "From your M0 Opportunity Map, what single useful output would you like your first AI employee to produce today?" Each learner writes one sentence.
 
-The tutor helps narrow the answer to one observable deliverable.
+Then pose the opening challenge:
 
-Examples:
+> You have been given five highly capable AI employees for free. You may assign any roles. Every extra employee creates coordination overhead. How many would you actually use for your chosen workflow, and why?
 
-- A meeting commitment register.
-- A concise competitor research brief with citations.
-- A draft project-status report.
-- A collection of research evidence.
-- A proposal-preparation outline.
+Learners write a number and one reason in Workbook Exercise 0, without discussion. **Do not correct anything.** The tutor and facilitator only record it.
 
-Do not accept an entire AI department as a first-session deliverable.
+Guiding question for the room: "What would make two AI employees genuinely different jobs rather than two different prompts?" Collect answers on a shared surface. Expect responsibility, source context, tools, permissions, expertise, independent review, and output obligations. Leave them uncorrected; the Blueprint Lite segment returns to them.
 
-Checkpoint: One output described in a sentence.
+**Checkpoint:** Every learner has a one-sentence target and a recorded prediction.
 
-### 5–11 — Practitioner demonstration and failure
+### 12–18 — Bound the workflow
 
-Demonstrate the Meeting Commitment Extractor supplied in the demo materials.
+Learners run the **First Workforce Test** on their M0 choice and complete the Workflow Card.
 
-Show:
+| Test | Question | Applies to |
+| --- | --- | --- |
+| Repeated | Does this happen often enough for improvement to compound? | Whole workflow |
+| Outcome-oriented | Is there a recognizable deliverable or decision at the end? | First slice |
+| Decomposable | Can different responsibilities be identified in the larger workflow? | Whole workflow |
+| Observable | Can I tell whether the result was good? | First slice |
+| Bounded | Is it constrained enough to supervise safely? | First slice |
+| Useful | Would success create meaningful time, quality, speed, or coverage? | First slice |
 
-1. A real input transcript.
-2. An intentionally insufficient employee instruction.
-3. A plausible but incorrect output.
-4. The source evidence contradicting that output.
-5. A revised instruction that requires evidence and uncertainty handling.
-6. A corrected output.
+Evaluate "Decomposable" on the larger workflow. The first slice may legitimately contain a single responsibility. Fail "Observable" or "Bounded" means narrow the slice before proceeding.
 
-Ask:
+Socratic checkpoint: "If this workflow went perfectly every time, what observable result would exist at the end?" Do not accept "save time" alone. Push toward a decision-ready brief, a prioritized queue, a reviewed draft, an evidence-backed recommendation, or a completed research package.
 
-"What evidence makes something a confirmed commitment rather than an attractive suggestion?"
+Second challenge: "Would this output still be valuable if you never built the rest of your planned workforce?"
 
-Checkpoint: Participants can identify why the initial result was wrong.
+**Checkpoint:** A Workflow Card with trigger, input, delegated work, output, evidence rule, human review, and out-of-scope list.
 
-### 11–17 — Autonomy ladder and responsibility
+### 18–25 — First Employee Contract
 
-Teach the five modes:
+Give a two-minute framing of the autonomy ladder (Prompt, Skill, Bounded employee, Coordinated workforce, Recurring governed operation). Stress that these are teaching modes, not mandatory stages, and that autonomy and specialization are separate decisions. Today's target is a bounded employee.
 
-1. Prompt — a guided task.
-2. Skill — a reusable procedure.
-3. Bounded employee — delegated responsibility with context and limits.
-4. Workforce — collaboration among justified specialists.
-5. Recurring governed operation — trigger-based execution with oversight.
+Learners draft `employees/first-employee.md` with the tutor. Required fields: mission, trigger, authorized input, permitted actions, prohibited actions, required output and path, evidence and uncertainty rules, cohort-one approval boundary, completion criteria.
 
-Clarify that these are not mandatory sequential levels and that specialization is separate from autonomy.
+Contract challenge: "What could the Builder do incorrectly while technically following this contract, and what one rule would reduce that risk?"
 
-Ask:
+**Checkpoint:** A contract that names exact paths and prohibits external action.
 
-"What would another AI employee accomplish that a good skill within one employee could not?"
+### 25–32 — Build and run
 
-Checkpoint: Participants can give at least one valid reason for specialization or explain why it is premature.
+The tutor summarizes the contract and asks whether the learner is ready to leave tutoring and run the Builder with the exact paths and restrictions. After an explicit yes, the tutor provides a Builder instruction, clearly labeled as such. The Builder reads the input and writes the proposal and receipt.
 
-### 17–25 — Bound the learner's workflow
+Circulate. Help with real blockers. If a learner cannot run, record the earliest blocker and switch to the fallback; do not pretend the run happened.
 
-Learners complete the Workflow Card with their tutor.
+**Checkpoint:** A saved proposal and receipt exist, or a specific blocker is recorded.
 
-Required:
+### 32–38 — Inspect and correct
 
-- Trigger.
-- Input.
-- One responsibility to delegate.
-- Output.
-- Evidence or acceptance criteria.
-- Human review point.
-- Out-of-scope activities.
+The learner opens the saved files and compares the proposal to the source. Ask: "What did the Builder get wrong, miss, or present with more confidence than the evidence supports?"
 
-Socratic challenge:
+If the first run looks flawless, use an ambiguous edge case. Do not invent a failure. Choose one defect, classify it (factual, unsupported inference, omission, format, tool failure, scope, approval), and propose one bounded change. A rerun is optional in the workshop; never describe an untested change as an achieved improvement.
 
-"Would this output be independently valuable if we never built the rest of your proposed workforce?"
+**Checkpoint:** `runs/m1-first-run-review.md` with verification status, source evidence, and one limitation.
 
-If no, narrow the workflow.
+### 38–45 — Blueprint Lite
 
-Facilitator intervention:
+This is the central architecture segment. It uses the learner's actual run, not an imagined workforce. Seven minutes, three steps.
 
-Help learners whose input access is blocked, whose project includes sensitive people judgments, or whose first slice is still too large.
+**Step 1 — Four-Bucket sort (3 minutes).** List four to six responsibilities from the run (for example read the transcript, classify statements, cite evidence, format the register, decide what to track, update the tracker). Place each in one bucket.
 
-Checkpoint: The workflow can be executed and reviewed within the remaining session.
+| Bucket | Use when |
+| --- | --- |
+| AI employee | The responsibility benefits from its own mission, context focus, repeated judgment, tools, permission boundary, persistent role, quality standard, or independent accountability |
+| Skill / SOP | It is a repeatable method, reusable across employees, procedural enough to describe, and not independently responsible for an outcome |
+| Tool | The capability primarily performs an action: search, read, query, send, create, retrieve |
+| Human | It needs consequential authorization, non-delegable accountability, organizational judgment the AI lacks, sensitive relationship management, ethical or legal responsibility, or ambiguous risk beyond the autonomy boundary |
 
-### 25–39 — Build and run
+A tool does something. An employee owns a responsibility.
 
-Participants customize the First Employee Contract.
+For any proposed **additional** employee, apply the disappearing-employee test: "If this employee disappeared, could the first employee simply use a skill to perform the same responsibility without creating context, permission, or quality problems?" If yes, the role does not need to exist.
 
-The AI tutor guides contract reasoning; the builder harness executes the task.
+**Step 2 — Authority map (2 minutes).** Label each responsibility A, R, P, or X.
 
-Minimum contract:
+| Label | Meaning in M1 |
+| --- | --- |
+| A — Autonomous | Inside the contract's designated paths; the Builder may perform it and continue |
+| R — Review | The Builder produces it; the human reviews before anyone relies on it |
+| P — Permission | The action would need explicit approval each time. **Not enabled in cohort one**; design it now, enforce it from M4 |
+| X — Prohibited | The Builder may not perform it. Every external or consequential action is X in cohort one, and the human performs it outside the workflow |
 
-- Mission.
-- Authorized inputs.
-- Allowed actions.
-- Disallowed actions.
-- Required output and file path.
-- Evidence requirements.
-- Handling of unknowns.
-- Human approval boundary.
-- Completion criteria.
+This is an architectural map only. An instruction cannot enforce it. Technical enforcement is M4's subject, and the map lifts directly into `governance/authority-matrix.md` there.
 
-Learners run their agent session on one actual or representative input.
+Facilitator question: "What is the most consequential action in your workflow, and who has authority to perform it?"
 
-The output must be saved to the project.
+**Step 3 — Topology (2 minutes).** State the topology in one sentence. For M1 the default is a **single bounded employee** (the Conductor acting as Builder). Name the three multi-employee patterns as vocabulary and say what evidence would make the learner change.
 
-Facilitator circulates and deals with actual blockers.
+| Pattern | Best when | Main risks (per the research notes) |
+| --- | --- | --- |
+| Manager–Worker | Work needs decomposition, varied paths, isolated specialist context, and one owner of the final result | Single point of failure at the manager; information loss in summarization passes |
+| Sequential chain | The execution path is known in advance and each stage has a clear output | Brittle with rigid structure; latency compounds; little adaptivity |
+| Peer / blackboard | Work is exploratory and findings emerge asynchronously | Race conditions, reflection loops, heavy token use, state drift |
 
-Checkpoint: A saved output exists, or a specific execution blocker is recorded.
+Choosing among these depends on how deterministic the workflow is. Peer / blackboard is vocabulary only in the core track; it belongs to the advanced track.
 
-### 39–47 — Inspect and correct
+**Checkpoint:** `01-workforce-blueprint.md` (Lite) with a responsibility sort, an authority map, a topology sentence, and one unresolved question for M2.
 
-Learners open the saved artifact and compare it with source material.
+### 45–55 — Peer clinic
 
-Ask:
+Pairs or a short round-robin using real evidence. Four prompts: **Show** what the Builder produced. **Inspect** what evidence supports it. **Challenge** where it could fail. **Improve** with one small change.
 
-"What did the agent get wrong, miss, or state without sufficient evidence?"
+Add two Blueprint challenges for the listener to use: "Why isn't this a skill?" and "If I removed that proposed employee, what would break?"
 
-Select one substantial defect or uncertainty.
+**Checkpoint:** Each learner records one challenge received and one decision reconsidered.
 
-If the first run appears correct, use an edge case or ambiguous input. Do not invent a failure.
+### 55–60 — Explain-back, reflection, and handoff
 
-Revise one element of the contract and rerun when feasible.
+Return each learner to the prediction from Exercise 0:
 
-Record the actual outcome.
+> You originally chose ___ employees. What would you choose now, and why does each role deserve to exist?
 
-Checkpoint: A Run Review showing observed evidence and at least one improvement hypothesis.
+For credit toward LO-1, the justification must rest on responsibility, context, tools, permissions, verification, parallelism, or coordination cost, not on "it is another step". A well-reasoned answer of "one, for now" is a strong answer.
 
-### 47–54 — Provisional architecture
+Then record the next concrete action, explain the practice run and the Blueprint Studio, and have the learner state the module gate in their own words.
 
-Use the first run to create a Responsibility Map.
+## Facilitator watchpoints
 
-The learner distinguishes:
+**Premature implementation.** Learners comfortable with coding agents may want to create more agent files. Redirect: "Before we configure anything, what responsibility does this employee uniquely own?"
 
-- Human decisions.
-- Employee responsibilities.
-- Repeatable skills.
-- Tools.
-- Potential additional employees.
+**Agent proliferation.** The commonest design failure is turning every workflow step into an agent. Ask: "Why isn't this a skill?"
 
-A second employee must be justified by a specific separation benefit such as distinct context, permission, expertise, parallelism, or independent verification.
+**Persona design.** Names and personalities can help communication, but they are not architecture. Push toward ownership, boundaries, tools, context, authority, and outputs.
 
-Do not encourage agent proliferation.
+**Keep the workflow real.** Later modules depend on M1. A learner should leave with a workflow they genuinely want to operate, not a classroom toy.
 
-Checkpoint: A provisional Workforce Blueprint with explicit unresolved questions.
-
-### 54–60 — Peer clinic and reflection
-
-In pairs or a short round-robin, each participant reports:
-
-- What artifact was created?
-- What was done well?
-- What went wrong or remains uncertain?
-- What is the next smallest improvement?
-
-Peer challenge:
-
-"What's your strongest evidence that this AI employee is useful?"
-
-Final tutor prompt:
-
-"What did running this employee reveal about the workflow that you hadn't understood before?"
-
-Ask each learner to write a summary before completing M1.
-
-Checkpoint: Reflection and M2 priorities recorded.
+**Confidence from fluency.** A well-formatted proposal is not a faithful one. Ask for the source quotation.
 
 ## Adaptive timing rules
 
-The facilitator should prioritize:
+Protect these in order:
 
-1. Bounded workflow.
-2. Working output.
-3. Human inspection.
-4. Recorded uncertainty or correction.
-5. Architecture reflection.
+1. a bounded workflow;
+2. a working, saved output;
+3. direct human inspection;
+4. a recorded limitation or correction;
+5. Blueprint Lite;
+6. the explain-back.
 
-If time is short, simplify the org-chart discussion.
-
-Do not skip output review merely to finish the blueprint.
-
-Participants still completing setup may use the facilitator's tested example, but should independently complete M0.5 and a first run before starting the M2 build.
+If time runs short, shorten the topology step to a single sentence and move the remaining architecture work to the Blueprint Studio. Do not skip output review to finish the Blueprint. A learner who has not completed setup may use the facilitator's tested example, but must complete a personal run before the M2 build.
 
 ## Socratic facilitation rules
 
-Challenge only when warranted:
-
-- Unclear value.
-- Overly broad scope.
-- Premature multi-agent design.
-- Undefined output.
-- Unsupported assumption.
-- Missing human authority.
-- Risky or sensitive data use.
-- Unobservable correctness.
-
-Do not oppose ideas simply to make the session seem Socratic.
-
-Acknowledge sound reasoning, ask for evidence when necessary, and move forward.
+Challenge only when warranted: unclear value, overly broad scope, premature multi-agent design, undefined output, an unsupported assumption, a missing human boundary, sensitive data, or unobservable correctness. Do not oppose ideas to seem Socratic. Acknowledge sound reasoning, ask for evidence when needed, and move on.
 
 ## Troubleshooting
 
-### Learner has no working harness
+| Situation | Response |
+| --- | --- |
+| No working Conductor | Use the facilitator's demonstration workspace. Record that personal execution is incomplete |
+| Project too large | Ask for the smallest independently useful output |
+| No sample input | Use a fictional representative input |
+| Agent returns text but no file | Return to the Builder action, request the designated path, and verify the file exists |
+| Plausible but wrong answer | Ask the learner to find the unsupported claim before editing instructions |
+| Learner cannot explain the architecture | Use one counterexample: "What happens if we combine these two responsibilities in one employee?" |
+| Learner is stuck after two questions | Reframe, narrow, give a partial example, then a worked example, then a new analogous unaided task |
+| Learner insists on three to five employees | Ask for the separation benefit of each. Accept a role only if it passes the disappearing-employee test; record the rest as hypotheses |
+| Learner wants to build the extra employees now | Decline for M1. Record them as candidates in the Blueprint; they are earned in M2 and M3 |
 
-Use facilitator's demo environment for the exercise. Record that personal execution remains incomplete.
+## Evidence and limits
 
-### Learner's project is too large
+The architecture guidance in this module draws on two practitioner-synthesis documents, not on controlled studies. Treat the following as the status of each claim.
 
-Ask for the smallest independently useful output.
+| Claim used in the module | Status |
+| --- | --- |
+| An AI employee is an encapsulated unit with its own instructions, memory bounds, tool access, and execution boundaries | Stated in both research documents |
+| Three topologies (manager–worker, sequential, peer/blackboard) and their listed vulnerabilities | Stated in both research documents. "Early errors propagate downstream" is a reasonable inference, not a quoted source claim; the sources say rigid structure and compounding latency |
+| Topology choice depends on how deterministic the task is | Stated in the research report |
+| Start with high-impact, low-effort workflows near daily operations (briefings, triage, draft-only communications) | Stated in the pragmatic guide |
+| Specialization significantly reduces hallucination rates | Asserted in the sources without evidence presented there. **Not used in learner materials** |
+| Manager–Worker as the default for a first small workforce | A course-design recommendation. The sources list market-intelligence work under peer/blackboard and cite mostly software-engineering examples. M1 defaults to a single employee, and the course's staged reference topology is Conductor, Builder, Reviewer, Observer |
 
-### Learner has no sample input
-
-Use a fictional course input or construct a safe representative case.
-
-### Agent outputs text but not a file
-
-Return to the builder environment and request the designated output file. Verify its existence.
-
-### Agent produces a plausible but incorrect answer
-
-Ask the learner to identify the unsupported claim before revising instructions.
-
-### Learner cannot explain the architecture
-
-Use one counterexample: "What happens if we combine these two responsibilities in one agent?"
-
-### Learner is stuck after two questions
-
-Reframe, narrow the problem, give a partial example, then a worked example if needed. Follow with a new analogous unaided task.
+If a pilot learner or reviewer needs stronger grounding, commission an evidence appendix from the research analyst before changing any claim above.
 
 ## End-of-session evaluation
 
-Collect:
-
-- Workflow Card.
-- Saved output or blocker.
-- First Employee Contract.
-- Run Review.
-- Provisional Workforce Blueprint.
-- Learner reflection.
-
-Mark completion and mastery separately.
-
-Artifact creation alone does not establish independent understanding.
+Collect the Workflow Card, saved output or blocker, contract, run review, Blueprint Lite, prediction and explain-back, and the learner reflection. Record completion and mastery separately. Artifact creation alone does not establish independent understanding.
 
 ## M2 handoff
 
-The learner should enter M2 knowing:
-
-- Which responsibility the existing employee performs.
-- What was difficult or unreliable.
-- Which procedures might become skills.
-- What additional specialization, if any, has a credible justification.
-- What context and tool access the employee needs.
-
-M2 begins by improving an existing working capability, not by inventing an org chart from scratch.
+The learner enters M2 knowing which responsibility the existing employee performs, what was unreliable, which procedure could become a skill, what specialization (if any) has a credible justification, and what context and tools the employee needs. M2 begins by improving a working capability, not by drawing an org chart from scratch.

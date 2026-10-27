@@ -1,228 +1,323 @@
 # M1 — Reusable Artifact Templates
 
-Copy each section into the indicated Markdown file. Replace bracketed placeholders with learner-specific content.
+Copy each section into the indicated Markdown file in the learner's `ai-workforce/` repository. Replace bracketed placeholders. Write `unknown` where information is missing; do not guess.
+
+Repository artifacts are the evidence of completion. A chat message is not.
 
 ---
 
-# FILE: 01-workforce-blueprint.md
+# FILE: governance/cohort-one-action-boundary.md
 
-# Provisional AI Workforce Blueprint
+(The Entry Ramp starter workspace supplies this file. Complete it before the Builder runs.)
 
-Project: [Project name]  
-Owner: [Learner]  
-Stage: M1 — First working responsibility  
-Architecture status: Provisional
+```markdown
+# Cohort-One Action Boundary
 
-## 1. Work Worth Improving
+Workflow: [name]
 
-Long-term vision: [Describe the overall opportunity.]
+The Builder may read: [exact paths]
 
-First independently valuable workflow: [Describe one bounded workflow.]
+The Builder may write: [exact paths: proposal and receipt only]
 
-Why it matters: [State the benefit.]
+The Builder must not: [send, publish, purchase, update authoritative records, use external systems, edit sources]
 
-Actual constraint: [What is limiting the work today?]
+Human-only actions: [list]
 
-## 2. First Workflow
-
-Trigger: [...]
-
-Inputs: [...]
-
-Delegated work: [...]
-
-Expected output: [...]
-
-Quality evidence: [...]
-
-Human review: [...]
-
-Out of scope: [...]
-
-## 3. Responsibility Allocation
-
-| Responsibility | Allocation | Reason |
-| --- | --- | --- |
-| [Responsibility] | Human / Employee / Skill / Tool | [Reason] |
-
-## 4. First Employee
-
-Name: [...]
-
-Mission: [...]
-
-Output: [...]
-
-## 5. Possible Future Employees
-
-| Candidate | Proposed distinct responsibility | Why separation might help | Untested assumption |
-| --- | --- | --- | --- |
-| [...] | [...] | [...] | [...] |
-
-Additional employee roles are hypotheses, not approved architecture.
-
-## 6. Human Authority
-
-AI may prepare: [...]
-
-Human must approve or decide: [...]
-
-Unauthorized actions: [...]
-
-## 7. Execution Evidence
-
-First output location: [...]
-
-Review location: [...]
-
-Observed limitation: [...]
-
-## 8. M2 Questions
-
-- [...]
-- [...]
+Approval required before any later execution: [list]
+```
 
 ---
 
 # FILE: employees/first-employee.md
 
+```markdown
 # First Employee Contract
 
-Employee: [Name]  
-Contract version: 0.1  
+Employee: [Name]
+Contract version: 0.1
 Owner: [Learner]
 
 ## Mission
-
 [One bounded outcome.]
 
 ## Trigger
-
 [What starts the work?]
 
-## Authorized Inputs
+## Authorized input
+[Exact path(s): inputs/representative-input.md]
 
-[Files, folders, or explicitly provided information.]
+## Permitted actions
+[Read the authorized input. Write the proposal and the receipt.]
 
-## Permitted Actions
+## Prohibited actions
+[Edit sources. Contact anyone. Use external systems. Update authoritative records. Invent facts.]
 
-[Specific allowed actions.]
+## Required output
+File: outputs/first-proposal.md
+Format: [table / brief / outline]
+Contents: [required elements]
 
-## Prohibited Actions
+## Evidence rules
+[How each claim must be supported: quotation, location.]
 
-[Specific forbidden actions.]
+## Uncertainty rules
+[Missing or ambiguous information is marked `unknown`; conditional or unassigned items are kept separate.]
 
-## Required Output
+## Human review and approval
+[What stays provisional until a human reviews it. Cohort one: no live external execution.]
 
-File: [outputs/first-run.md]
+## Completion conditions
+[How the learner knows the task has finished.]
 
-Format: [Markdown table, report, brief, etc.]
-
-Contents: [Required elements.]
-
-## Evidence Rules
-
-[How claims must be supported.]
-
-## Uncertainty Rules
-
-[What the employee should do when information is missing, disputed, or ambiguous.]
-
-## Human Review and Approval
-
-[What remains provisional until human review.]
-
-## Completion Conditions
-
-[How the participant knows the task has finished.]
-
-## Change History
-
+## Change history
 v0.1: Initial contract.
+```
 
 ---
 
-# FILE: inputs/sample-input.md
+# FILE: runs/m1-workshop-manifest.md
 
-# Sample Input
+Use the Conductor's run manifest template and set `Run type: workshop`.
 
-Source type: [Transcript / Report / Notes / Research material / Other]
+```markdown
+# Governed Workforce Run Manifest
 
-Date or period: [...]
+Run ID: [YYYYMMDD-m1-workshop-001]
+Run type: workshop
+Requested by: [human]
+Workflow: [name]
+Status: [draft / builder-active / awaiting-human-approval / complete / blocked / needs catch-up]
 
-Access authorization: [Fictional / Public / Authorized internal / Anonymized]
+## Paths
+Contract: employees/first-employee.md
+Input: inputs/representative-input.md
+Builder proposal: outputs/first-proposal.md
+Builder receipt: runs/m1-first-run-receipt.md
 
-## Input Content
+## Completion gates (workshop)
+- [ ] Contract and designated input are recorded.
+- [ ] Proposal and receipt are saved.
+- [ ] Learner opened the output and recorded evidence or a limitation.
 
-[Place a safe representative input here.]
-
-## Learner Notes
-
-[Optional context relevant to evaluating the result.]
+## Coordination log
+[Message delivery IDs or notices. These are not completion evidence.]
+```
 
 ---
 
-# FILE: runs/first-run-review.md
+# FILE: runs/m1-first-run-receipt.md
 
-# First Run Review
+The **Builder** writes this file. The learner does not prefill it. Everything in it is the Builder's own account until the learner verifies it.
 
-Run ID: M1-001  
-Date: [...]  
-Builder harness: [...]  
-Employee contract version: [...]  
-Input path: [...]  
+```markdown
+# M1 First Run Receipt
+
+Run ID: [matches the manifest]
+Contract version: [...]
+Input read: [exact path]
+Files written: [exact paths]
+Actions taken: [list]
+Information marked unknown: [list]
+Anything skipped or not attempted: [list]
+Stopped for human review: Yes / No
+
+Builder's stated limitations (unverified): [...]
+```
+
+---
+
+# FILE: runs/m1-first-run-review.md
+
+```markdown
+# M1 First Run Review
+
+Run ID: [...]
+Date: [...]
+Contract version: [...]
+Input path: [...]
 Output path: [...]
 
 ## Execution
-
-Was the output file created? Yes / No / Not verified
-
+Output file exists: Yes / No / Not verified
 Evidence source: Direct file inspection / Learner report / Other
+Builder stayed within contract: [...]
 
-Did the agent remain within the stated task? [...]
+## Quality review
+Correct or useful elements: [...]
+Incorrect, unsupported, or uncertain elements: [...]
+Source evidence (quote or location): [...]
+Failure category: Factual / Unsupported inference / Omission / Format / Tool failure / Scope / Approval / Other
 
-## Quality Review
+## Human intervention
+What I corrected or approved: [...]
 
-Useful or correct elements: [...]
-
-Incorrect or uncertain elements: [...]
-
-Evidence from source: [...]
-
-Failure category: [...]
-
-## Human Intervention
-
-What did I correct or approve? [...]
-
-## Improvement Hypothesis
-
+## Improvement hypothesis
 Proposed change: [...]
-
 Why it might help: [...]
 
 ## Retest
-
-Retested? Yes / No
-
+Retested: Yes / No
 New output path: [...]
-
 Observed result: [...]
-
 Remaining issue: [...]
 
-## Learning Reflection
-
-What did this run teach me about the workflow or its architecture?
-
-[...]
+## Learning record
+Diagnostic results (tier-3d, from this learner's own answers): [item → what the learner chose → misconception id, if any]
+Mastery evidence: [independent / assisted / not demonstrated / untested, per competency]
+Explain-back: [learner's own words]
+Transfer case and response: [...]
+Remaining gaps: [...]
+```
 
 ---
 
-# FILE: outputs/first-run.md
+# FILE: 01-workforce-blueprint.md
 
-This file should be created by the builder agent during M1.
+Start with the Lite sections. Add the Studio sections between sessions.
 
-Do not prefill it with a successful-looking response.
+```markdown
+# AI Workforce Blueprint
 
-The learner should inspect the actual saved result and preserve its evidence for review.
+Workflow: [...]
+Trigger: [...]
+Desired outcome: [...]
+Primary deliverable: [...]
+Human owner: [...]
+Stage: M1 [Lite / Studio]
+Architecture status: Provisional
+
+## 1. Responsibility sort (Lite)
+| Responsibility | Employee | Skill | Tool | Human | Why |
+| --- | --- | --- | --- | --- | --- |
+| [...] | | | | | |
+
+Disappearing-employee test for any extra employee I considered: [...]
+
+## 2. Authority map (Lite)
+Architectural map only. Technical enforcement begins in M4.
+
+| Responsibility | A / R / P / X | Reason |
+| --- | --- | --- |
+| [...] | | |
+
+A = autonomous inside designated paths. R = reviewed before reliance. P = explicit approval each time (not enabled in cohort one). X = prohibited; the human acts outside the workflow.
+
+Most consequential action and who holds authority: [...]
+
+## 3. Topology (Lite)
+Starting topology: Single bounded employee / Manager–Worker / Sequential / Peer-blackboard / Hybrid
+Why, in one sentence: [...]
+Evidence that would make me change it: [...]
+
+## 4. Skills needed
+1. [...]
+2. [...]
+
+## 5. Tools needed
+1. [...]
+2. [...]
+
+## 6. Human-held decisions
+1. [...]
+2. [...]
+
+## 7. Initial success measures
+1. [...]
+2. [...]
+
+## 8. Unresolved questions for M2
+- [...]
+
+---
+## Studio additions (between sessions)
+
+## 9. Whole-workflow decomposition
+Trigger → Inputs → Responsibilities → Decisions → Deliverable: [...]
+Candidate boundaries (different context, judgment, tools, or authority): [...]
+
+## 10. Topology comparison
+Workflow character: predictable and linear / adaptive but centrally coordinated / exploratory and collaborative
+Chosen topology and reason: [...]
+
+## 11. Candidate roles (hypotheses; zero to four)
+| Candidate | Owns | Separation benefit | Disappearing-employee test | Earned in |
+| --- | --- | --- | --- | --- |
+| [...] | | | | M2 / M3 / M6 / not in course |
+
+One sentence per kept employee: "This employee owns the outcome of ___."
+
+## 12. Stress test (revise once)
+1. Redundancy: [...]
+2. Missing ownership: [...]
+3. Context overlap: [...]
+4. Tool boundary: [...]
+5. Human boundary: [...]
+Revisions made: [...]
+
+## 13. Headcount answer
+Original prediction: [number and reason]
+Revised answer: [number and reason for each role]
+```
+
+---
+
+# FILE: runs/m1-practice-manifest.md
+
+```markdown
+# Governed Workforce Run Manifest
+
+Run ID: [YYYYMMDD-m1-practice-001]
+Run type: practice
+Requested by: [human]
+Workflow: [name]
+Status: [complete / blocked / needs catch-up]
+
+## Paths
+Contract: employees/first-employee.md
+Input: [inputs/... a second representative input, if available]
+Builder proposal: [outputs/... path]
+Builder receipt: [runs/... path]
+
+## Practice checklist
+- [ ] Reused the contract, manifest, receipt, and review artifacts.
+- [ ] Opened the output and recorded what I saw.
+- [ ] Status is complete, blocked, or needs catch-up.
+
+## If blocked or needs catch-up (minimum viable submission)
+Direct blocker evidence: [file path, error text, or what I observed]
+One attempted recovery step and its result: [...]
+
+## Coordination log
+[Notices only; not completion evidence.]
+```
+
+---
+
+# OPTIONAL: Workflow Candidate Scorecard (use only if unsure which M0 workflow to start with)
+
+Score each 1–5.
+
+| Criterion | Workflow A | Workflow B | Workflow C |
+| --- | --- | --- | --- |
+| Repeats frequently |  |  |  |
+| Business value |  |  |  |
+| Can define a good output |  |  |  |
+| Contains separable responsibilities |  |  |  |
+| Data and tools are accessible |  |  |  |
+| Errors are recoverable |  |  |  |
+| Human approval points are identifiable |  |  |  |
+| **Total** |  |  |  |
+
+Choose one. Then check it against `discovery/workflow-safety-triage.md` before the Builder runs. If a workflow scores high on value but its errors are not recoverable, narrow it to a draft-only slice.
+
+---
+
+# FILE: inputs/representative-input.md
+
+The Entry Ramp starter workspace supplies this file. Replace the placeholder with one safe, authorized representative input. Do not paste secrets, credentials, or unauthorized personal data.
+
+---
+
+# FILE: outputs/first-proposal.md
+
+The Builder creates this file during M1. Do not prefill it with a successful-looking response. The learner inspects the actual saved result and preserves its evidence in the run review.

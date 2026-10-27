@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Evaluate the learner's demonstrated ability to define, run, inspect, and explain a bounded AI employee.
+Evaluate the learner's demonstrated ability to define, run, inspect, and explain a bounded AI employee, and to decide from run evidence what should be an employee, a skill, a tool, or a human responsibility.
 
 Artifact completion and conceptual mastery are evaluated separately.
 
@@ -24,9 +24,9 @@ The learner can specify authorized inputs, allowed actions, output requirements,
 
 The learner can inspect a saved artifact, compare it with its source, recognize a material error or ambiguity, and propose a targeted correction.
 
-### C5 — Provisional architecture
+### C5 — Provisional architecture and authority
 
-The learner can defend an initial human/employee/skill/tool allocation and identify what is still untested.
+The learner can defend an initial human/employee/skill/tool allocation, an A/R/P/X authority map, and a starting topology, and can identify what is still untested. Each kept role is justified by a specific separation benefit (responsibility, context, expertise, permissions, verification, or parallelism), not by "it is another step".
 
 ## Four mastery levels
 
@@ -44,10 +44,11 @@ Do not award Level 3 merely for producing the correct document.
 For a prepared learner:
 
 - A bounded Workflow Card.
-- An initial Employee Contract.
-- A saved first-run output.
-- A Run Review.
-- A Provisional Workforce Blueprint.
+- `employees/first-employee.md`.
+- `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`.
+- `runs/m1-first-run-review.md`.
+- `01-workforce-blueprint.md` (Lite: responsibility sort, authority map, topology).
+- The opening headcount prediction and the learner's revised answer.
 - A short reflection.
 
 If a learner is blocked by environment setup, record what was actually accomplished and what remains incomplete.
@@ -140,6 +141,26 @@ Ask:
 
 "What should happen, and how would you express the boundary in the contract?"
 
+### Transfer Case 5 — Four-Bucket sort on a new workflow
+
+A learner who ran a meeting-commitment extractor now plans a weekly customer-feedback digest: read the export, group comments by theme, score each theme's severity with a standard rubric, write the digest in the house format, and decide which themes go to the product team.
+
+Ask:
+
+"Which of these responsibilities are employee, skill, tool, or human, and what is your reason for each?"
+
+Defensible: reading is a tool; grouping with judgment may be the employee's owned responsibility; the severity rubric and house format are skills; deciding what goes to the product team is human. The scoring question is the reasoning, not a match to this answer.
+
+### Transfer Case 6 — Authority and topology
+
+The digest workflow adds a request: "Post the digest to the team channel each Monday and open tickets for the top three themes."
+
+Ask:
+
+"What A/R/P/X label does each action get in cohort one, what does the map not do, and what topology would you start with and why?"
+
+Defensible: posting and ticket creation are X in cohort one (the human does them outside the workflow) or P in a later, separately controlled setting; the map is architectural, not enforcement; start with a single bounded employee and name the evidence that would justify a Reviewer.
+
 ## Assessment method
 
 1. Ask the learner for an unaided explanation.
@@ -156,7 +177,8 @@ If a learner needs a worked example, return to a new transfer case after the exa
 Learner:  
 Date:  
 Workflow:  
-Harness:
+Builder path (Conductor workspace / other):  
+Headcount prediction → revised answer:  
 
 | Competency | Level 0–3 | Evidence | Remaining gap |
 | --- | --- | --- | --- |
@@ -164,11 +186,13 @@ Harness:
 | C2 Employee/skill/tool |   |   |   |
 | C3 Employee contract |   |   |   |
 | C4 Evidence review |   |   |   |
-| C5 Architecture |   |   |   |
+| C5 Architecture and authority |   |   |   |
 
 Execution status: Completed / Partial / Blocked / Unverified
 
 Artifact location: [...]
+
+Intake diagnostic (learner's own record, `tier-3d`): [distractors chosen and confidence, from `runs/m1-first-run-review.md`]
 
 Summary given by learner: [...]
 

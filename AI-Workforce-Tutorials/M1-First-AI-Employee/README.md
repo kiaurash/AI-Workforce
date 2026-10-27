@@ -2,145 +2,159 @@
 
 ## Package title
 
-M1 — Find the Work, Build the First Employee
+M1 — Find the Work, Build the First Employee, and Draft the Workforce Blueprint
 
-Version 1.0
+Version 2.0 (Hermes Desktop reference path; harness-neutral concepts)
 
-## Entry Ramp v1 status
+## What M1 teaches
 
-This package is governed by the [M1 Entry Ramp v1 Retrofit](ENTRY-RAMP-V1-RETROFIT.md), which establishes the Hermes Desktop/Conductor reference path, exact evidence-map paths, cohort-one draft/proposal boundary, and required manual practice run. Use that addendum before distributing any older M1 worksheet, guide, skill, demo, or template.
+M1 teaches a learner to delegate one bounded piece of real work to an AI employee, verify what actually happened, and then use that evidence to decide what should become an employee, a skill, a tool, or a human responsibility.
 
-## Intended folder structure
+The module has two anchor questions.
+
+- **Primary anchor:** What is the smallest useful piece of work I can responsibly delegate to an AI employee today?
+- **Blueprint anchor:** What should become an AI employee, what should remain a skill or tool, and what should stay under human control?
+
+The learner answers the primary question by running a Builder task. The learner answers the Blueprint anchor afterward, for the same workflow, using the evidence from that run.
+
+## Sequencing decision: build first, then architect
+
+An earlier proposal for this module (the "Architect Your AI Workforce" design) taught architecture before any run. The course design (`Course.md` v4.0) says the opposite: learners build early, start with one bounded capability, and earn specialization from evidence. This package follows the course design and folds the architecture tools into the part of the session that comes after the first run.
+
+| Architecture tool | Where it now lives |
+| --- | --- |
+| Opening challenge ("five free employees") | Prediction recorded in minutes 7–12; revisited at the explain-back in minutes 55–60 |
+| First Workforce Test | Workflow-bounding step, minutes 12–18 |
+| Outcome-based decomposition (trigger → inputs → responsibilities → decisions → deliverable) | Workflow Card, minutes 12–18; Blueprint Studio Part A |
+| Four-Bucket Test (employee / skill / tool / human) | Blueprint Lite, minutes 38–45, on the learner's own run |
+| Topology choice | Blueprint Lite default (single bounded employee); Blueprint Studio Part B |
+| Candidate roles and the "disappearing employee" test | Blueprint Studio Part C |
+| Authority map (A / R / P / X) | Blueprint Lite, minutes 38–45 |
+| Architecture stress test | Blueprint Studio Part D |
+| Explain-back and transfer | Minutes 55–60 and the mastery check |
+
+## Folder structure
 
 ```text
 M1-First-AI-Employee/
 ├── README.md
+├── ENTRY-RAMP-V1-RETROFIT.md
 ├── facilitator/
 │   └── M1-Facilitator-Guide.md
-├── skills/
-│   └── m1-first-ai-employee-socratic-tutor/
-│       └── SKILL.md
-├── demo/
-│   └── M1-Practitioner-Demo.md
 ├── learner/
 │   └── M1-Workbook.md
 ├── templates/
 │   └── M1-Artifact-Templates.md
-└── assessment/
-    └── M1-Mastery-Rubric.md
+├── demo/
+│   ├── M1-Practitioner-Demo.md
+│   ├── M1-Worked-Example-Workforce.md
+│   └── fixtures/
+│       └── m1-demo-meeting.md
+├── assessment/
+│   └── M1-Mastery-Rubric.md
+└── skills/
+    └── m1-first-ai-employee-socratic-tutor/
+        ├── SKILL.md
+        └── references/
+            ├── m1-misconception-map.md
+            └── m1-diagnostic.md
+```
+
+The Conductor profile carries the runtime copy of the tutor at `hermes-profiles/ai-workforce-conductor/skills/m1-first-ai-employee-tutor/`. The two `references/` files in the package are canonical. When either changes, update the Conductor copy in the same commit.
+
+## The 60-minute shape
+
+The session follows the course-wide pattern: 7 minutes of demonstration, 5 minutes of retrieval, 33 minutes of guided work, 10 minutes of peer clinic, and 5 minutes of reflection.
+
+| Minutes | Segment | Output |
+| --- | --- | --- |
+| 0–7 | Practitioner demonstration with a planted failure | Learners can say why the first result was wrong |
+| 7–12 | Retrieval and prediction | Pre-registered headcount prediction; one-sentence target output |
+| 12–18 | Bound the workflow | First Workforce Test; Workflow Card |
+| 18–25 | First Employee Contract | `employees/first-employee.md` |
+| 25–32 | Build and run | `outputs/first-proposal.md`, `runs/m1-first-run-receipt.md`, `runs/m1-workshop-manifest.md` |
+| 32–38 | Inspect and correct | `runs/m1-first-run-review.md` |
+| 38–45 | Blueprint Lite | `01-workforce-blueprint.md` |
+| 45–55 | Peer clinic | One challenge received and one decision reconsidered |
+| 55–60 | Explain-back, reflection, practice-run handoff | Revised headcount answer; next action |
+
+## Evidence map
+
+All paths follow the Entry Ramp v1 evidence map. Repository artifacts are authoritative; chat claims are not proof.
+
+```text
+ai-workforce/
+├── 01-workforce-blueprint.md
+├── employees/first-employee.md
+├── inputs/representative-input.md
+├── outputs/first-proposal.md
+├── runs/
+│   ├── m1-workshop-manifest.md      (run_type: workshop)
+│   ├── m1-first-run-receipt.md
+│   ├── m1-first-run-review.md
+│   └── m1-practice-manifest.md      (run_type: practice)
+└── governance/cohort-one-action-boundary.md
 ```
 
 ## Required companion materials
 
-- M0 AI Workforce Opportunity Map, when available.
-- M0.5 Workspace Readiness Report.
-- M0.5 sample meeting transcript.
-- A supported and tested AI agent environment.
+- M0 `discovery/opportunity-map.md` and `discovery/workflow-safety-triage.md`.
+- M0.5 readiness evidence (Gate A and Gate B) and the imported Conductor profile.
+- One safe, authorized representative input saved at `inputs/representative-input.md`.
+- The Entry Ramp starter workspace or a tested fallback.
 
 ## How to use the materials
 
 ### Facilitator
 
-Read the Facilitator Guide.
-
-Prepare the live demonstration, including the actual first-run failure and corrected run.
-
-Confirm that a functional fallback workspace is available.
-
-Distribute the learner workbook and templates.
-
-Lead the group through the timed phases.
+1. Read the Facilitator Guide, then the Demonstration and Worked Example.
+2. Run the demonstration yourself before class and record the real first-run output, the real corrected output, and what did not improve. The failed output printed in the demo file is illustrative until you replace it with your own record.
+3. Confirm a working Conductor workspace or a tested fallback for each learner.
+4. Distribute the Workbook and Templates.
 
 ### Individual learner
 
-Open a separate AI conversation or activate the M1 Socratic Tutor skill.
+Open the AI Workforce Conductor's canonical Bot Chat. The M1 tutor skill starts with a short diagnostic, then guides the workbook one question at a time. The Builder action starts only after you approve the contract and file paths.
 
-Share the relevant M0 Opportunity Map or describe the selected workflow.
+### Builder
 
-Follow one question at a time.
-
-Use the builder harness for actual file operations.
-
-Record results in the workbook and run review.
-
-### Builder harness
-
-Open the learner's working project.
-
-Read the learner's First Employee Contract.
-
-Execute only its authorized task.
-
-Write the required output file.
-
-Stop for human review.
+The Builder reads only `inputs/representative-input.md`, writes only `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`, updates the workshop manifest, and stops for human review.
 
 ## Important operating distinction
 
-The Socratic Tutor and the builder agent must not be treated as the same logical role.
+The Socratic tutor and the Builder are different logical roles even when they run on the same platform. The tutor helps the learner reason and evaluate. The Builder performs the bounded work. Use separate conversations or clearly separated sessions, and label every Builder instruction as such.
 
-The tutor helps the learner understand, reason, and evaluate.
+## Before the session
 
-The builder agent performs the work.
+Each learner completes the 3–4 minute intake diagnostic with the M1 tutor before the workshop (`skills/.../references/m1-diagnostic.md`). It records which design beliefs the learner already holds so the tutor can ask the right prediction questions later. It is not graded.
 
-A learner may use the same underlying AI platform for both, but preferably in separate conversations or sessions.
+## Between-session work
 
-## Installation and invocation
+1. **Manual practice run (required, 15–30 minutes).** Complete `runs/m1-practice-manifest.md` with `run_type: practice`. Status is `complete`, `blocked`, or `needs catch-up`. A blocked learner submits the manifest, direct blocker evidence, and one attempted recovery step.
+2. **Blueprint Studio (recommended, about 25 minutes).** Expand the Blueprint Lite into a fuller architecture decision: topology comparison, candidate-role tests, stress test, and a revised headcount answer. It is described in the Workbook and Templates. A missing Studio does not block M2; the gap is recorded and M2 opens with a five-minute review.
 
-The tutor skill uses standard YAML frontmatter and a SKILL.md structure.
-
-For a platform with native Agent Skills support, install the skill in its documented skill location and confirm discovery/activation.
-
-Otherwise the facilitator may provide the full tutor instructions in a dedicated AI conversation.
-
-Platform-specific installation and feature support must be verified before class.
-
-## M1 classroom readiness
-
-Before the workshop, confirm:
-
-- The starter input exists.
-- The default demonstration harness can open the input.
-- The output folder is writable.
-- The failed example is clearly identified as illustrative or genuinely observed.
-- The corrected example has been tested.
-- The peer review format is practical for the group size.
-- The facilitator can assist learners who encounter setup problems.
+Do not build any new employee or specialist Bot between sessions. Specialization is earned in M2 and M3.
 
 ## Session success
 
-Prepared participants should leave with:
+A prepared learner leaves with:
 
-1. One bounded workflow.
-2. One first employee contract.
-3. One actual saved output.
-4. One execution review.
-5. One provisional architecture.
-6. One learner reflection.
-
-Learners who need setup support may complete personal execution after class and before M2.
+1. one bounded workflow;
+2. one first employee contract;
+3. one saved output and receipt, verified by direct inspection;
+4. one run review with an observed limitation;
+5. one Blueprint Lite with an authority map and a topology decision; and
+6. one revised answer to the opening headcount prediction, with reasons.
 
 ## Important limitations
 
-The tutor cannot assume the learner's local files are accessible.
-
-The facilitator should not report a demo as tested until it has been run.
-
-An instruction file is not a deterministic security mechanism.
-
-A successful first run does not prove production reliability.
-
-The M1 objective is a bounded learning milestone, not deployment of an autonomous production system.
+- The tutor cannot assume the learner's local files are accessible.
+- A demo is not "tested" until the facilitator has run it and recorded the result.
+- An instruction file is not a deterministic security mechanism. Technical enforcement of the authority map belongs to M4.
+- A successful first run is one observation, not evidence of production reliability.
+- Evidence behind the architecture guidance is practitioner synthesis drawn mostly from software-engineering contexts. See the "Evidence and limits" section of the Facilitator Guide.
+- M1 is a bounded learning milestone, not deployment of an autonomous production system.
 
 ## M2 handoff
 
-Bring:
-
-- First Employee Contract.
-- First-run output.
-- Run Review.
-- Workforce Blueprint.
-- Observed failure or uncertainty.
-- Question about specialization or reusable skills.
-
-M2 should build on the actual M1 evidence rather than restarting architectural discovery.
+The learner brings the contract, output, receipt, run review, Blueprint Lite (and Studio, if done), the observed limitation, and one question about reusable skills or specialization. M2 builds on this evidence instead of restarting architectural discovery.

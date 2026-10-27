@@ -4,195 +4,129 @@
 
 The Confident but Incorrect Meeting Commitment Extractor
 
-Duration: 6 minutes in class  
-Purpose: Demonstrate a runnable AI responsibility, inspect a plausible failure, and improve instructions based on evidence.
+Duration: 7 minutes in class  
+Purpose: Show a runnable AI responsibility, inspect a plausible failure, repair the contract from evidence, and set up the Blueprint Lite segment.
+
+## Honesty rule
+
+The "flawed result" in Part B and the "expected corrected outcome" in Part F are **illustrative**. Actual model behavior differs run to run. Before class the facilitator runs the demo, saves the real outputs, and fills in the preparation record at the end of this file. In class, say which outputs are real. Never present an illustrative table as an observed execution trace.
 
 ## Preparation
 
-Use the M0.5 fictional transcript in:
+1. Copy `demo/fixtures/m1-demo-meeting.md` into the demo workspace as `inputs/demo-meeting.md`. The fixture is a fictional refund-delays meeting that learners have not seen. Do not use the M0.5 `sample-meeting.md`; learners already processed it.
+2. The demo Builder can read only the designated workspace.
+3. Keep the fixture's answer key out of sight until learners inspect the output.
 
-`inputs/sample-meeting.md`
+## Part A — The naive assignment (about 1 minute)
 
-If unavailable, the facilitator should use a transcript with:
+Open a fresh bounded Builder session and submit:
 
-- Explicit commitments.
-- Revised deadlines.
-- Tentative suggestions.
-- Unassigned ideas.
-- Conditional follow-ups.
+> Read inputs/demo-meeting.md. List the actions people discussed, with owners and due dates. Write your answer to outputs/demo-first-attempt.md.
 
-The builder harness must have access only to the designated training workspace for this exercise.
+This is deliberately underspecified. It does not separate suggestions from commitments, initial dates from revised dates, or conditional ideas from assigned work.
 
-## Part A — The naive assignment
+## Part B — Plausible flawed result (about 1 minute)
 
-Open a fresh bounded agent session and submit:
-
-> Read inputs/sample-meeting.md. List the actions people discussed, with owners and due dates. Write your answer to outputs/demo-first-attempt.md.
-
-This instruction is deliberately underspecified. It does not adequately distinguish:
-
-- Suggestions from commitments.
-- Initial dates from revised dates.
-- Conditional intentions from confirmed dated actions.
-
-## Part B — Plausible flawed result
-
-A failure example for learners to inspect:
+An illustrative failure for learners to inspect:
 
 | Owner | Action | Due date |
 | --- | --- | --- |
-| Jordan | Summarize five onboarding failures | October 20 |
-| Leo | Draft revised onboarding screen | October 21 |
-| Priya | Send three customer examples | October 19 |
-| Priya | Create a tutorial video | Next month |
-| Jordan | Redesign entire setup flow | Not stated |
+| Ben | Pull and tag refund tickets | Tuesday noon |
+| Chloe | Survey ten longest-waiting customers | Wednesday |
+| Dev | Check payment provider status page | Wednesday |
+| Unassigned | Review new refund policy | This week |
 
-This is an illustrative incorrect output. Actual model behavior can differ.
+Four typical faults are planted: the stale deadline (Ben), a conditional idea promoted to an assignment (the survey), an invented date (Dev), and a rejected suggestion treated as a task (the policy review).
 
-## Part C — Guided Socratic challenge
+## Part C — Guided Socratic challenge (about 2 minutes)
 
-Show the original transcript and the flawed output.
+Show the transcript beside the output. Ask:
 
-Ask:
+> Which rows are evidence-backed commitments, and which are the model's interpretation?
 
-"Which rows are evidence-backed commitments, and which are the model's interpretation of ideas?"
+Wait. Let learners find at least one fault before you name any. Prompts if they are stuck:
 
-Wait for responses.
+- On Ben: "Which statement establishes the final agreed date?"
+- On Dev: "What in the transcript gives Wednesday?"
+- On the survey: "What word in Chloe's sentence makes it conditional, and what did Ana decide?"
+- On the policy: "What did Ana say about it?"
 
-If learners notice the invented video assignment, ask:
+## Part D — Revised bounded employee contract (about 1 minute)
 
-"What language in the meeting indicates that the video was approved?"
+**Employee:** Meeting Commitment Extractor  
+**Mission:** Turn a transcript into an evidence-linked record of confirmed commitments.  
+**Authorized input:** `inputs/demo-meeting.md`  
+**Permitted actions:** Read the transcript; write one proposed Markdown register and one receipt.  
+**Prohibited actions:** Edit the transcript, update any tracker, contact anyone, invent facts, or treat suggestions as approved work.  
+**Evidence rule:** Every row carries owner, action, final agreed due date if one exists, and a supporting quotation.  
+**Uncertainty rule:** Mark missing owner or date `unknown`. Keep conditional ideas, unassigned suggestions, and rejected suggestions in a separate, labeled section.  
+**Deadline rule:** If a date is revised and accepted, use the final date.  
+**Human boundary:** A human reviews the register before anyone relies on it or copies it to a tracker.  
+**Output:** `outputs/demo-corrected.md`  
+**Completion:** A readable register exists that separates confirmed commitments from everything else.
 
-If they notice the incorrect screen deadline, ask:
-
-"Which statement establishes the final agreed date?"
-
-Do not correct every problem immediately. Allow learners to find at least one.
-
-## Part D — Revised bounded employee contract
-
-### Employee
-
-Meeting Commitment Extractor
-
-### Mission
-
-Convert meeting transcripts into a reliable, evidence-linked record of confirmed commitments.
-
-### Authorized input
-
-`inputs/sample-meeting.md`
-
-### Permitted actions
-
-Read the supplied transcript and create a proposed Markdown output.
-
-### Prohibited actions
-
-Do not edit the transcript, update project-management systems, contact participants, invent facts, or treat meeting suggestions as approved work.
-
-### Evidence requirements
-
-For each confirmed action include the owner, action, final agreed deadline if available, and a supporting source quotation.
-
-### Uncertainty rules
-
-Keep proposals, ambiguous assignments, and conditional intentions separate from confirmed dated commitments.
-
-### Deadline handling
-
-If a due date changes during the conversation, use the final agreed date. Do not present an earlier proposal as the active deadline.
-
-### Human boundary
-
-The human reviews the register before it is relied upon or transferred into an authoritative tracking system.
-
-### Output
-
-`outputs/demo-corrected.md`
-
-### Completion
-
-A readable Markdown register exists and distinguishes confirmed actions from unapproved ideas.
-
-## Part E — Improved assignment
-
-Copy to the builder harness:
+## Part E — Improved assignment (about 1 minute)
 
 > You are a Meeting Commitment Extractor.
 >
-> Read only inputs/sample-meeting.md.
+> Read only inputs/demo-meeting.md.
 >
-> Produce a Markdown table of confirmed meeting commitments with columns: Owner, Commitment, Final agreed due date, Supporting quote.
+> Produce a Markdown table of confirmed commitments with columns: Owner, Commitment, Final agreed due date, Supporting quote.
 >
-> Use the final agreed date if a deadline was revised. Never invent an owner or deadline. Exclude unapproved suggestions from confirmed commitments.
+> Use the final agreed date when a deadline was revised and accepted. Never invent an owner or deadline; write `unknown`. Keep deadlines relative if the transcript gives only a weekday.
 >
-> Add a separate section called "Conditional follow-ups and unassigned ideas" when relevant. Label those items clearly.
+> Add a separate section called "Conditional, unassigned, or rejected ideas" and label each item.
 >
-> Write the result to outputs/demo-corrected.md.
->
-> Do not modify the source, send messages, or access external systems. Stop after creating the proposed output for human review.
+> Write the result to outputs/demo-corrected.md. Do not modify the source, send messages, or access external systems. Stop after writing the proposed output for human review.
 
-## Part F — Expected corrected outcome
+## Part F — Expected corrected outcome (illustrative)
 
-Confirmed commitments:
+| Owner | Commitment | Final agreed due date | Note |
+| --- | --- | --- | --- |
+| Ben | Pull last month's refund tickets and tag delays by cause | Tuesday end of day | Revised from Tuesday noon; accepted by Ana |
+| Chloe | Draft the survey questions | Wednesday | Assigned by Ana; acceptance not recorded |
+| Dev | Check the payment provider's status page for incidents | unknown | Dev gave no date pending access |
 
-| Owner | Commitment | Due date |
-| --- | --- | --- |
-| Jordan | Summarize five common onboarding setup failures | October 20 |
-| Leo | Deliver revised onboarding screen | October 23 |
-| Priya | Send three anonymized customer examples | October 19 |
+Separate section: the ten-customer survey (conditional, deferred), and the new refund policy review (unowned suggestion; explicitly not this week).
 
-Maya's conditional review may be recorded separately, with no invented calendar due date.
+The facilitator verifies the real corrected output rather than assuming the new instruction always works.
 
-The tutorial video and entire-flow redesign are not assigned commitments.
-
-Each confirmed row should include a quotation or evidence reference.
-
-The facilitator should verify the actual corrected result rather than assuming the new instruction always works.
-
-## Part G — Reflect on the design lesson
+## Part G — Bridge to the Blueprint (about 1 minute)
 
 Ask:
 
-"Was the first problem that we needed another AI employee, or that our first employee lacked a sufficiently clear contract?"
+> Was our first problem that we needed another AI employee, or that our first employee lacked a clear contract?
 
-Expected insight:
+Expected insight: the observed failure was repaired with a better contract, evidence rules, and human review, without adding a second employee. Do not imply that better instructions alone guarantee reliability; one corrected run is one observation.
 
-The observed failure can be addressed initially through improved definitions, evidence rules, and review—without introducing a second employee.
-
-Do not imply that better instructions alone guarantee reliability.
+Then show the Blueprint Lite for this run (see `M1-Worked-Example-Workforce.md`, Example 1). Point out that "format the register" and "cite evidence" ended up as skills, that "update the tracker" is X in cohort one, and that the topology is one bounded employee. This previews what learners do themselves at minute 38.
 
 ## Optional edge case for early finishers
 
-Add this line near the end of an otherwise comparable fictional transcript:
+Add this line near the end of the fixture:
 
 > We'll get someone to review the numbers next week.
 
-Ask learners to predict how the extractor should handle it.
+Ask learners to predict how the extractor should treat it. A defensible answer marks owner and timing as unknown and lists it as an unassigned suggestion.
 
-A defensible response should mark the owner and timing as uncertain rather than invent them.
+## Facilitator preparation record (complete before class)
 
-## Facilitator preparation record
-
-Before class, record:
-
-- Harness and version/interface.
-- Sample input used.
-- Actual first-run output.
-- Observed failure.
-- Contract change.
-- Actual corrected output.
-- What improved and what did not.
-
-Never present the illustrative failed output as an actual observed execution trace.
+- Harness and version / interface:
+- Fixture used:
+- Actual first-attempt output (file path):
+- Observed failure (quote the faulty row):
+- Contract change made:
+- Actual corrected output (file path):
+- What improved:
+- What did not improve or was still wrong:
+- Date run and by whom:
 
 ## Demonstration completion standard
 
 Learners can explain:
 
-1. Why the first instruction was insufficient.
-2. What evidence supports a confirmed commitment.
-3. How a revised deadline should be handled.
-4. Why human review still matters after the correction.
-5. Why adding another agent is not automatically the right response.
+1. why the first instruction was insufficient;
+2. what evidence supports a confirmed commitment;
+3. how a revised deadline is handled;
+4. why human review still matters after the correction; and
+5. why adding another employee was not the first fix.

@@ -1,6 +1,6 @@
 # M1 Entry Ramp v1 Retrofit
 
-This addendum governs the existing M1 package. Where it conflicts with an older harness-neutral/Codex/Claude/Gemini assumption, this addendum controls.
+This addendum governs the M1 package. Package version 2.0 already follows it, so the Facilitator Guide, Workbook, Templates, Demonstration, and tutor skills use these paths and the Conductor reference path. The addendum remains for traceability and still controls if any file conflicts with it.
 
 ## Reference path
 
@@ -22,7 +22,7 @@ The Builder may read only the designated representative input and write only the
 
 ## In-session minimum gate
 
-Within 60 minutes, the learner must produce one bounded draft/proposal, inspect the saved file against its source, and record one observed limitation. A rerun and expanded Workforce Blueprint may move to practice work when time is short.
+Within 60 minutes, the learner must produce one bounded draft/proposal, inspect the saved file against its source, record one observed limitation, and complete a Blueprint Lite in `01-workforce-blueprint.md` (responsibility sort, A/R/P/X authority map, and a topology sentence). A rerun and the expanded Blueprint Studio may move to practice work when time is short.
 
 ## Required practice run
 
