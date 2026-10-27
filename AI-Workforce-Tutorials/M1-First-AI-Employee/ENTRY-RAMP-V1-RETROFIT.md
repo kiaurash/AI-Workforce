@@ -16,7 +16,10 @@ Use the [Entry Ramp v1 evidence map](../Entry-Ramp-v1/README.md). M1 must create
 - `runs/m1-workshop-manifest.md` with `run_type: workshop`
 - `runs/m1-first-run-receipt.md`
 - `runs/m1-first-run-review.md`
+- `runs/value-checkpoint.md`
 - `governance/cohort-one-action-boundary.md`
+
+The Tutor additionally writes `learning/learning-record.md`, and only that file.
 
 The Builder may read only its own contract (`employees/first-employee.md`, which it may not edit) and the designated representative input, and write only the proposed artifact plus receipt. The contract must be readable by the Builder, otherwise it cannot govern the run. It may not send, publish, purchase, update authoritative records, or use external systems.
 

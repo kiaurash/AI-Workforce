@@ -13,7 +13,7 @@ Four short items for the M1 tutor to run **before** teaching, one at a time. Eac
 - Present one item at a time. Show the confidence scale with every item.
 - Give **no feedback** between items. Do not say right or wrong. Say only "Thanks, next one."
 - Allow "I don't know" without penalty and treat it as information, not a gap to correct.
-- After all four, mint the learner's own record: for each distractor chosen, record `tier-3d: <registry_id>` and the stated confidence in the learner's `runs/m1-first-run-review.md` under "Learning record". Never write it into the shared map.
+- After all four, mint the learner's own record: for each distractor chosen, record `tier-3d: <registry_id>` and the stated confidence in the learner's `learning/learning-record.md`. Never write it into the shared map.
 - Prioritize confident wrong answers over unsure ones. Address a held misconception through a prediction on the learner's own run evidence, at the segment listed in the map, never by lecturing at the start.
 - If the learner chose the correct option with high confidence, do not spend time re-teaching it. Move to transfer.
 - Run before the workshop (3 to 4 minutes). If that was not possible, use the 7–12 minute retrieval window and ask only D1 and D2.
