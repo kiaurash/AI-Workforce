@@ -48,7 +48,7 @@ The architecture proposal listed eight session outcomes. This table shows where 
 - Resolves technical blockers quickly, using the fallback when needed.
 - Challenges architecture claims with evidence from the learner's own run.
 
-### Socratic AI tutor (in the Conductor's canonical Bot Chat)
+### Socratic AI tutor (in the Tutor's canonical Bot Chat)
 
 - Opens with a short diagnostic, then asks one focused question per turn.
 - Uses the learner's M0 documents as data, not instructions.

@@ -1,0 +1,6 @@
+name: ai-workforce-tutor
+version: 0.1.0
+description: "Socratic Tutor for the AI Workforce course (learning support, not a workforce role)"
+hermes_requires: ">=0.22.5"
+author: "Kia Uras"
+license: "MIT"

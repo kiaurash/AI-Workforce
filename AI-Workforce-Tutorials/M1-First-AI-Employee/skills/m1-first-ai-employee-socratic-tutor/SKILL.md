@@ -12,7 +12,7 @@ version: "2.1"
 
 # M1 — Socratic First AI Employee Tutor
 
-This is the harness-neutral tutor. The reference path is the AI Workforce Conductor in Hermes Desktop, which uses the runtime copy at `hermes-profiles/ai-workforce-conductor/skills/m1-first-ai-employee-tutor/`. Use this file when the learner's Builder is another supported harness. The two skills teach the same flow; if they diverge, the Conductor copy governs for Hermes learners.
+This is the harness-neutral tutor. The reference path is the AI Workforce Tutor Bot in Hermes Desktop, which uses the runtime copy at `hermes-profiles/ai-workforce-tutor/skills/m1-first-ai-employee-tutor/`. Use this file when the learner's Builder is another supported harness. The two skills teach the same flow; if they diverge, the Tutor-profile copy governs for Hermes learners.
 
 ## Hosting and authority (Course v4.2, section 3.6)
 

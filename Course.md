@@ -319,7 +319,7 @@ The learner imports the single **Conductor** profile distribution, opens its can
 - `profiles/role-activation-log.md` entry for the Conductor, and one for the Tutor once imported; and
 - a blocked run manifest.
 
-The learner also imports the **Tutor** distribution (§3.6), either in M0.5 or at the start of M1, signs it in to the learner's chosen provider (credentials are per profile), and runs its activation test (§15).
+The learner also installs the **Tutor** distribution (`hermes-profiles/ai-workforce-tutor/`, §3.6), either in M0.5 or at the start of M1. They sign it in to their chosen provider (credentials are per profile), set the Tutor's write limit to their workspace's `learning/` folder (`HERMES_WRITE_SAFE_ROOT`, described in the distribution README), and run its activation test (§15).
 
 The learner does not create Builder, Reviewer, or Observer in M0.5.
 
@@ -704,7 +704,7 @@ Before delivery, the facilitator must:
 - prepare successful and failed examples for every module;
 - verify the Builder → Reviewer evidence packet and disposition workflow;
 - test an adversarial approval-stop case and controlled recovery;
-- verify that the Tutor profile can read the learner workspace, cannot write outside `learning/`, and signs in with the learner's provider;
+- verify that the Tutor profile can read the learner workspace, that writes outside `learning/` are refused when the write limit is set, and that it signs in with the learner's provider (the tool surface alone does not make it read-only: the `file` toolset bundles read and write);
 - decide and tell learners who may read the learning record;
 - prepare non-sensitive representative inputs and a fallback demonstration workspace;
 - prepare a labeled Builder proposal and receipt for the M3 fallback start and a labeled historical case pack for M6, and test M3 beginning at packet assembly;

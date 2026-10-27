@@ -1,0 +1,9 @@
+# Tutor tool surface. The Tutor can read and edit files, ask questions, load skills,
+# plan, and use memory and session search. It has no terminal, no code execution, no
+# browser, no web, no delegation, and no cron.
+#
+# The `file` toolset bundles read_file with write_file and patch, so tools alone cannot
+# make the Tutor read-only. The write limit is enforced separately by
+# HERMES_WRITE_SAFE_ROOT (see README.md) and checked by the activation test.
+platform_toolsets:
+  cli: [clarify, file, memory, session_search, skills, todo]
