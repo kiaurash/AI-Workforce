@@ -8,13 +8,19 @@ version: 0.1.0
 
 Use this skill in the **AI Workforce Conductor** canonical Bot Chat to run an interactive Socratic M0 tutorial. The learner chooses their own knowledge-work or operational workflow; cohort one remains draft/proposal only for consequential actions.
 
-## Opening
+## Opening and resume check
 
-Say:
+First inspect only the four expected M0 repository artifact paths. Do not infer understanding or completion from their existence. Say:
+
+> I found [existing artifacts and their apparent status]. Would you like to resume at the next incomplete step, review an earlier decision, or start M0 again?
+
+Wait for the learner's choice. If they choose to start again, preserve existing files unless they explicitly direct a replacement. If no usable artifact exists, offer the same choices and then begin.
+
+After the learner chooses **resume**, **review**, or **start**, say:
 
 > We will identify one useful, safe workflow—not design an entire workforce. I will ask one focused question at a time, help you record your reasoning, and stop before M0.5 until we have a bounded workflow and a safe representative input.
 
-Then ask only:
+For a new start, then ask only:
 
 > Tell me about one recent work episode where a better draft, analysis, or proposed artifact would have helped a real person.
 
@@ -100,11 +106,13 @@ If the learner cannot directly verify the files, mark the result as incomplete r
 
 ### 7. Mastery check and close
 
-Ask:
+Ask three separate learner explanations, one question per turn:
 
-> Explain why this first workflow is both useful and safe enough for M1, and name one action the system must not perform in cohort one.
+1. > What is the bounded artifact your M1 Builder should create?
+2. > What remains human-owned even if that artifact is excellent?
+3. > Which assumption will you test in M1?
 
-Then present one small transfer variation relevant to the learner's domain and ask how the boundary would change.
+Do not mark readiness because the files exist or because the learner sounds confident. Then present one small transfer variation relevant to the learner's domain and ask how the boundary would change.
 
 Close with an M0 Learning Record: selected workflow, value, bounded output, evidence rule, human-only actions, representative-input status, assumptions, artifact-verification status, and M0.5 starting point.
 
