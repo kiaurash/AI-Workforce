@@ -1,6 +1,6 @@
 # Build Your AI Workforce with Hermes
 
-**Version:** 4.1 — Hermes Desktop reference design (draft revision: optional roles, minimum viable outcomes, value checkpoints)
+**Version:** 4.2 — Hermes Desktop reference design (draft revision: optional roles, minimum viable outcomes, value checkpoints, Socratic Tutor)
 
 **Status:** Facilitator-review draft
 
@@ -98,21 +98,57 @@ The staged topology is:
 
 ### 3.5 Demonstrate every role; keep only what earns its place
 
-Every learner experiences each role's behavior, but no learner is required to keep a role permanently. For the Builder (M2), Reviewer (M3), and Observer (M6), the learner runs a **temporary role experiment** and then records a **Role Decision Record**.
+Every learner experiences each role's behavior, but no learner is required to keep a role permanently. For the Builder (M2), Reviewer (M3), and Observer (M6), the learner works through three states and records a **Role Decision Record**.
 
-An experiment is complete when the learner has:
+| State | Meaning |
+| --- | --- |
+| **Concept demonstrated** | The learner watched a facilitator demonstration or reviewed a labeled, supplied case. This shows what the role does, but it cannot support a decision about the learner's own workflow. |
+| **Experiment completed** | The learner ran the role's evidence task (below) under an explicit contract and assessed the result. |
+| **Decision recorded** | The learner recorded adopt, do not adopt, or deferred pending experiment in a Role Decision Record, citing experiment evidence. |
 
-1. run the role's activation test (§15) and a real task under an explicit contract;
-2. recorded what the role caught, missed, or produced that the existing setup would not have, and what it cost in time, setup, and extra files;
-3. considered a simpler alternative, such as a skill, a checklist, or human review; and
-4. recorded a decision: **adopt**, **do not adopt**, or **defer pending more evidence**, with the evidence that would change the decision.
+The experiment evidence differs by role:
+
+| Role | Experiment evidence required for a decision |
+| --- | --- |
+| Builder (M2) | The repeat-run comparison of the M1 baseline against the skill-assisted run. The Builder activation test is required only if the learner adopts a separate profile. |
+| Reviewer (M3) | The Reviewer activation test and one real disposition on a review packet. |
+| Observer (M6) | The Observer activation test and one proposal or `collect more evidence` disposition. |
 
 Rules:
 
+- **No experiment, no decision.** Without experiment evidence, the only valid status is **deferred pending experiment**. An untested role is never recorded as unnecessary.
 - **Adopting and declining receive equal credit.** Assessment scores the reasoning and the evidence, not the outcome. A learner who keeps a Reviewer and a learner who drops it can both reach Level 3.
-- **Declining must be evidence-based.** “I did not have time to try it” is not a decision. A decision requires a real run of the role and a recorded comparison.
+- **Declining must be evidence-based.** “I did not have time to try it” is not a decision. The record states what the role caught, missed, or produced, what it cost in time, setup, and extra files, and which simpler alternative (a skill, a checklist, or human review) was considered.
+- **The record states what would change the decision.**
 - **The activation log records the result.** A role that is not adopted is logged as `not adopted` or `deferred` in `profiles/role-activation-log.md`, with a link to the Role Decision Record. The learner's capstone then uses only the roles they kept; the authority matrix, practice runs, and later modules cover those roles.
 - **A learner may keep a role conditionally**, for example by using review only for high-risk runs, and must state the condition.
+
+### 3.6 The Socratic Tutor: a learning-support Bot, not a workforce role
+
+The Tutor is a separate Hermes Bot (profile) that teaches. It does not operate the workflow. It is part of the learning environment, so it does not count toward the learner's role count, and learners are not asked to justify it as an architectural choice.
+
+| | **Tutor** | **Conductor** |
+| --- | --- | --- |
+| Purpose | helps the learner understand: diagnoses misconceptions, asks Socratic questions, gives hints and examples, runs mastery checks and transfer probes | coordinates operational runs and verifies completion gates |
+| Evidence it owns | the learning record: diagnostic results, mastery levels, explain-backs, transfer probes, remaining gaps | manifests, receipts, handoffs, run status |
+| May write | `learning/learning-record.md` only | designated operational paths |
+| May claim | what the learner demonstrated | nothing without a saved artifact |
+| Must not | edit operational artifacts, run the Builder, certify that a run happened or passed, or supply the learner's answers | treat messages as proof |
+
+Interaction model:
+
+- **Diagnose before teaching.** A short intake diagnostic with confidence ratings and no feedback between items. Prioritize confident wrong answers.
+- **One focused question at a time.** Challenge selectively; avoid generic praise.
+- **Progressive hints.** Reframe, narrow to one distinction, give a partial scaffold, show an example, then require the learner to apply the idea to a different case unaided.
+- **Mastery evidence.** Levels follow §17. The Tutor records the evidence and the level, and names any gap rather than crediting participation.
+
+Boundaries between the Tutor and the Conductor:
+
+1. **Hand-offs go through the learner.** The Tutor may prepare a draft instruction. The learner opens the Conductor's Bot Chat and decides to run it. The Tutor does not dispatch operational work.
+2. **Messages are notifications only.** If the Tutor and Conductor exchange Bot-to-Bot messages (§3.4), those messages are never assignments and never evidence.
+3. **Records stay separate.** The learning record is not an input to operational runs and is never part of a Reviewer's evidence packet. Operational artifacts are not edited by the Tutor.
+4. **Profile separation is not file separation.** A separate profile gives the Tutor its own memory, skills, credentials, and chat history. It does not by itself prevent reading or writing files. The Tutor's access is limited by enabling only the tools it needs and is verified by its activation test (§15).
+5. **Hosting.** The Tutor runs as a Hermes Bot in cohort one. A separate learning portal is out of scope.
 
 ---
 
@@ -122,10 +158,10 @@ Rules:
 | --- | --- | --- | --- |
 | M0 | Optional self-guided discovery | choose a workflow worth improving | Opportunity Map |
 | M0.5 | Self-guided technical onboarding | Hermes Desktop, repository, Conductor safe-stop | readiness table, smoke-test output, blocked manifest |
-| M1 | 60 min | first bounded AI employee | contract, saved output, receipt, run review |
-| M2 | 60 min | repeatability, skills, earned specialization | `SKILL.md`, repeat-run comparison, role decision |
-| M3 | 60 min | structured handoff and independent review | review packet, review decision, resolution record |
-| M4 | 60 min | governance, evaluation, controlled recovery | authority matrix, adversarial test, scorecard |
+| M1 | One saved output from a contract-governed run, inspected against its source with one recorded limitation; a Blueprint Lite (responsibility sort, authority map, and a topology sentence); and an explanation of the retained human decision | a rerun, the fuller Blueprint Studio work, and the first practice run | the drafted contract; direct blocker evidence; and an inspected facilitator-demonstration output with one recorded limitation |
+| M2 | One skill extracted and tested on a second comparable input, with a written comparison and a Role Decision Record for the Builder based on that comparison | creating and activating a separate Builder profile (required only if the learner adopts one) | the skill draft; the first-run artifacts; and blocker evidence for the second run |
+| M3 | One review packet, one Reviewer disposition recorded under activation-test conditions, and one resolution record, starting from a prepared Builder proposal and receipt if the learner's own are not ready | a second review cycle and the Role Decision Record (until it is written the status stays “experiment completed”) | the packet as assembled so far; blocker evidence; and the earliest failed step |
+| M4 | **Learning gate:** an authority matrix for one workflow and one adversarial test, run, with its observed result honestly recorded and the risk identified. The stop test is mandatory and not movable. See M4 for the separate operational gate | the full evaluation set, the scorecard, the correction and retest after a failed stop, and the recovery record | the matrix; the adversarial case as written; and what the learner observed when running it |
 | M5 | 60 min | governed organizational knowledge | knowledge record, provenance, promotion decision, retrieval test |
 | M6 | 60 min | evidence-led improvement | observer proposal, baseline/candidate comparison, human decision |
 
@@ -135,7 +171,7 @@ Every formal workshop follows this pattern:
 - 5 min: short retrieval prompt and guiding question;
 - 33 min: guided work on the learner’s capstone;
 - 10 min: peer clinic using actual evidence;
-- 5 min: reflection, value checkpoint (§4.2), recorded next action, and module gate.
+- 5 min: reflection, a three-line value judgment (§4.2), recorded next action, and module gate.
 
 ### 4.1 Minimum viable outcome for each workshop
 
@@ -143,10 +179,10 @@ Each workshop is designed around one **minimum viable outcome (MVO)**: the small
 
 | Module | Must happen in the hour (MVO) | May move to between-session work | Evidence that counts as legitimate blocked progress |
 | --- | --- | --- | --- |
-| M1 | One saved output from a contract-governed run, inspected against its source with one recorded limitation, and an explanation of the retained human decision | a rerun, the fuller workforce Blueprint, and the first practice run | the drafted contract; direct blocker evidence; and an inspected facilitator-demonstration output with one recorded limitation |
-| M2 | One skill extracted and tested on a second comparable input, with a written comparison and a Role Decision Record for the Builder | creating and activating a separate Builder profile, if the learner chooses one | the skill draft; the first-run artifacts; and blocker evidence for the second run |
-| M3 | One review packet, one Reviewer disposition, and one resolution record, starting from a prepared Builder proposal and receipt if the learner's own are not ready | a second review cycle and the Role Decision Record write-up | the packet as assembled so far; blocker evidence; and the earliest failed step |
-| M4 | An authority matrix for one workflow and one adversarial test with its observed result recorded (the stop test is mandatory and is not movable) | the full evaluation set, the scorecard, and the recovery record | the matrix; the adversarial case as written; and what the learner observed when running it |
+| M1 | One saved output from a contract-governed run, inspected against its source with one recorded limitation; a Blueprint Lite (responsibility sort, authority map, and a topology sentence); and an explanation of the retained human decision | a rerun, the fuller Blueprint Studio work, and the first practice run | the drafted contract; direct blocker evidence; and an inspected facilitator-demonstration output with one recorded limitation |
+| M2 | One skill extracted and tested on a second comparable input, with a written comparison and a Role Decision Record for the Builder based on that comparison | creating and activating a separate Builder profile (required only if the learner adopts one) | the skill draft; the first-run artifacts; and blocker evidence for the second run |
+| M3 | One review packet, one Reviewer disposition recorded under activation-test conditions, and one resolution record, starting from a prepared Builder proposal and receipt if the learner's own are not ready | a second review cycle and the Role Decision Record (until it is written the status stays “experiment completed”) | the packet as assembled so far; blocker evidence; and the earliest failed step |
+| M4 | **Learning gate:** an authority matrix for one workflow and one adversarial test, run, with its observed result honestly recorded and the risk identified. The stop test is mandatory and not movable. See M4 for the separate operational gate | the full evaluation set, the scorecard, the correction and retest after a failed stop, and the recovery record | the matrix; the adversarial case as written; and what the learner observed when running it |
 | M5 | One sourced candidate knowledge record with provenance and a human promote, defer, or reject decision | a conflict and obsolescence test beyond the first, and further retrieval experiments | the record draft; the provenance fields completed; and blocker evidence |
 | M6 | One Observer proposal or a correct `collect more evidence` disposition, plus a baseline and candidate comparison on at least two comparable cases | monitoring plan and isolated branch testing | the evidence window assembled; the Observer's output or blocker; and the learner's reasoning for the disposition |
 
@@ -158,15 +194,27 @@ Each workshop is designed around one **minimum viable outcome (MVO)**: the small
 
 A learner who submits all three has met the gate for the blocked state, and the catch-up clinic applies. A learner without blocker evidence, or with no attempted recovery, has not.
 
+**Facilitator-attested evidence.** Sometimes direct repository evidence cannot be produced because of a restriction outside the learner's control, such as an organizational policy, an account permission the learner cannot inspect, or an application failure before the repository is writable. In that case the facilitator may attest to the blocker after observing it, in a dated facilitator note that records what was observed and how. An attestation counts as evidence of the blocker only. It never counts as evidence that a run succeeded, and the learner still records the attempted recovery step.
+
+**The MVO measures learning, not operational approval.** Completing a workshop MVO shows the learner reached the learning milestone. It never makes a workflow governed, approved, or safe to operate; where a module sets operational conditions (such as the M4 stop test), the workflow keeps the label “not yet governed” until they are met.
+
 Where an MVO relies on facilitator-supplied material, the material is labeled as supplied in the learner's repository, and the learner does not represent it as their own run evidence.
 
 ### 4.2 Value checkpoint (every module from M1)
 
-Every workshop includes a short **value checkpoint** inside the 5-minute reflection. It uses the same question each time:
+Every workshop ends with a short **value checkpoint** built on one question:
 
 > Did what we added in this module make the workflow better enough to justify what it cost?
 
-The learner appends one entry per module to a single file, `runs/value-checkpoint.md`, using this form:
+**In class (about two minutes): three lines.**
+
+1. **Judgment:** keep, simplify, or remove.
+2. **One supporting observation** from the learner's own run.
+3. **One uncertainty:** what more evidence would change the judgment.
+
+*Example after M3:* “The Reviewer caught one unsupported claim but added eight minutes of review. I would keep it only for reports that go to senior management. I need more runs to be sure.”
+
+**Between sessions: the fuller record.** The learner completes the measures below when the evidence is available, in one file, `runs/value-checkpoint.md`, with one entry per module.
 
 | Measure | Before this module | After this module |
 | --- | --- | --- |
@@ -174,7 +222,6 @@ The learner appends one entry per module to a single file, `runs/value-checkpoin
 | Output usefulness | what the intended recipient needs | what the recipient or learner judged |
 | Rework before relying on the output | typical corrections | corrections recorded |
 | Overhead added | none | setup, checking, and maintenance minutes |
-| **Judgment** | | keep, simplify, or remove, with one sentence of evidence |
 
 Rules:
 
@@ -193,6 +240,19 @@ Module-specific prompts:
 | M4 | Are the controls proportionate to the risk they cover? |
 | M5 | Did retrieving the record improve a task enough to justify keeping it current? |
 | M6 | Did the change improve the baseline by more than it cost to test, and without regressions? |
+
+### 4.3 Transfer probe (every module from M1)
+
+Operational artifacts show that the workflow ran. A **transfer probe** shows that the learner understands why the design works. After each workshop the Tutor gives one short question about a new case, and the learner answers unaided. The answer is recorded in the learning record and counts toward the mastery level (§17). The probe is not part of the in-session MVO and never blocks the module gate.
+
+| Module | Example probe |
+| --- | --- |
+| M1 | A three-step workflow includes one purely formatting step. Does it deserve its own employee? |
+| M2 | A second workflow repeats an activity only twice a year. Does it deserve a reusable skill? |
+| M3 | A Reviewer catches nothing across several low-risk runs. What evidence would justify keeping it? |
+| M4 | A new workflow includes emailing a client. What would you test to show the workflow stops, and what would a failed test mean? |
+| M5 | Two knowledge records conflict. Which one is trusted, and what additional information is needed? |
+| M6 | Three runs show a different error each time. Should the Observer propose a change? |
 
 ### Required between-session practice runs
 
@@ -256,8 +316,10 @@ The learner imports the single **Conductor** profile distribution, opens its can
 
 - `outputs/commitments.md`, independently checked;
 - Workspace Readiness Report/readiness table;
-- `profiles/role-activation-log.md` entry for the Conductor; and
+- `profiles/role-activation-log.md` entry for the Conductor, and one for the Tutor once imported; and
 - a blocked run manifest.
+
+The learner also imports the **Tutor** distribution (§3.6), either in M0.5 or at the start of M1, signs it in to the learner's chosen provider (credentials are per profile), and runs its activation test (§15).
 
 The learner does not create Builder, Reviewer, or Observer in M0.5.
 
@@ -391,7 +453,7 @@ The Reviewer’s acceptance never authorizes a consequential action; the human a
 3. Create a small evaluation set containing ordinary, ambiguous, and adverse inputs.
 4. Run the workflow and record checkable outcomes: success, unsupported claims, omissions, human corrections, tool failures, retries, approval events, and recovery.
 5. Run an adversarial case that attempts to cross the approval boundary.
-6. Demonstrate that the workflow **stops** and records an approval request or blocked state; a prompt saying “ask first” is not sufficient evidence.
+6. Record whether the workflow **stops** and records an approval request or blocked state; a prompt saying “ask first” is not sufficient evidence.
 7. Record a controlled recovery from one failed or incomplete run.
 
 ### M4 evidence and gate
@@ -400,12 +462,17 @@ The Reviewer’s acceptance never authorizes a consequential action; the human a
 - approval record;
 - evaluation cases and scorecard;
 - run logs/reviews;
-- adversarial-test result proving a stop; and
+- adversarial-test result, and a passing retest before the workflow is labeled governed; and
 - controlled recovery record.
 
 Core measures may include first-pass success, evidence completeness, correction count, unresolved uncertainty, and time/usage when available. Do not manufacture precision from too few runs.
 
-The adversarial stop test is mandatory. If the test shows that the workflow does **not** stop, that is a valid and instructive result: the learner records a failed control, the corrective action, and the retest, and does not describe the boundary as enforced until it has stopped. Consequential actions in cohort one remain simulated or human-performed.
+The adversarial stop test is mandatory and has two separate gates.
+
+- **Learning gate (workshop).** The learner runs the test, honestly records the observed result, and identifies the risk. A test that fails is a successful learning result when it is documented.
+- **Operational gate.** A workflow whose stop test failed is labeled **not yet governed**. The learner records the failed control, the corrective action, and a retest. Only a passing retest allows the workflow to be described as governed.
+
+Discovering a real failure completes the learning exercise; it does not show that the system passed its safety requirement. Consequential actions in cohort one remain simulated or human-performed.
 
 ---
 
@@ -525,6 +592,8 @@ ai-workforce/
 │   └── review-packet/
 ├── reviews/
 ├── runs/
+├── learning/
+│   └── learning-record.md
 ├── governance/
 ├── knowledge/
 │   └── approved/
@@ -554,6 +623,8 @@ The starter kit supplies editable versions of:
 - Role Activation Log;
 - Role Decision Record;
 - Value Checkpoint entry;
+- Learning Record entry;
+- Facilitator Blocker Attestation;
 - Knowledge Record;
 - Knowledge Promotion Decision;
 - Observer Improvement Proposal; and
@@ -569,6 +640,7 @@ Each template must distinguish observed evidence from assumptions and must leave
 | Builder | designated input and output path | reads only its own contract (read-only) and the designated input; writes only proposed artifact plus receipt |
 | Reviewer | minimal review packet | writes only evidence-cited disposition: accept, return, or escalate |
 | Observer | sufficient or insufficient approved historical evidence | writes one narrow proposal or correctly returns `collect more evidence` |
+| Tutor | the learner asserts that a run is complete, but the file is absent or the receipt disagrees with the files | inspects the files, states what it can and cannot verify, does not certify the run, and writes only to `learning/learning-record.md` |
 
 Every result is logged with role, allowed paths/tools, test input, expected output, observed result, evidence inspected, defects/uncertainty, and human activation decision.
 
@@ -606,7 +678,7 @@ The learner demonstrates:
 2. the current role/skill architecture, why each kept role is justified, and why any tested role was not adopted;
 3. one complete end-to-end run with inspectable repository evidence;
 4. one failed or incomplete run and controlled recovery;
-5. a meaningful human approval boundary and proof it stops work appropriately;
+5. a meaningful human approval boundary and proof it stops work appropriately (a failed stop test is recorded as a failed control until a retest passes);
 6. measured performance evidence and limitations, and the value checkpoint record showing which additions were kept, simplified, or removed and why;
 7. one governed memory decision; and
 8. one evidence-backed, human-governed improvement decision.
@@ -626,16 +698,27 @@ Before delivery, the facilitator must:
 - test the Windows Hermes Desktop installation path and provide macOS/Linux appendix guidance;
 - test M0.5 Gate A and Gate B on a clean environment;
 - verify the published Conductor distribution and its role-creation guidance;
-- run all four role-activation tests;
+- run all five role-activation tests, including the Tutor's;
 - prepare successful and failed examples for every module;
 - verify the Builder → Reviewer evidence packet and disposition workflow;
 - test an adversarial approval-stop case and controlled recovery;
+- verify that the Tutor profile can read the learner workspace, cannot write outside `learning/`, and signs in with the learner's provider;
+- decide and tell learners who may read the learning record;
 - prepare non-sensitive representative inputs and a fallback demonstration workspace;
 - prepare a labeled Builder proposal and receipt for the M3 fallback start and a labeled historical case pack for M6, and test M3 beginning at packet assembly;
 - prepare the Role Decision Record and Value Checkpoint templates and a worked example of a justified decision not to adopt a role;
 - ensure no core exercise requires paid API access beyond the learner’s chosen supported access path;
 - provide templates and a peer-help route; and
 - test Claude/Codex adapters separately before presenting them as supported alternatives.
+
+### Pilot readiness
+
+The first cohort is a pilot of one supported core pathway with one common mastery standard. Differentiated beginner, standard, and advanced pathways are not built yet. Their need is decided from pilot evidence. For the pilot:
+
+- run a setup-readiness check before M1 using M0.5 Gates A and B, with a documented catch-up route and the fallback demonstration workspace;
+- supply preconfigured starter workspaces and a short glossary of file, folder, path, and profile terms;
+- prepare an extension task for learners who finish early, based on an edge case or transfer question, not additional agents; and
+- track where each learner needed help: setup stage, file paths, blocked states, contract writing, and role decisions. Review the tracking after the pilot to decide whether separate pathways are needed.
 
 ---
 
