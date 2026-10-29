@@ -26,19 +26,38 @@ execution tools now rather than defer)
 
 Orchestration group (always needed):
 - `kanban_create`, `kanban_link`, `kanban_comment`, `kanban_show`, `kanban_list`
-- `kanban_block`, `kanban_unblock` — included so the profile can block its own output;
-  by convention (Advisory, not Enforced — the tool does not check who calls it)
-  unblocking a consequential/out-of-envelope item is reserved for the human reviewer,
-  per SOUL.md's operating procedure. Document this honestly in any readiness report
-  rather than claiming the tool itself enforces the separation.
+- `kanban_block` only — **`kanban_unblock` is deliberately NOT granted.** The architect
+  has no legitimate use for releasing its own blocked work (it creates blocked tasks,
+  it never needs to lift the block); removing the tool converts this boundary from
+  Advisory ("please don't") to Enforced (the capability genuinely does not exist in
+  this profile's toolset). Per Codex review of PR #3, granting it alongside an
+  "only a human calls this, by convention" note made the convention meaningless —
+  removing the tool is the actual fix, not a stronger instruction.
 - `skill_manage`
 - `cronjob_manage`
 - `message_agent` (or the active platform's equivalent bot-to-bot messaging tool)
 
-Generic pilot-execution group (a piloted work unit could be almost any kind of task):
+Generic pilot-execution group (a piloted work unit could be almost any kind of task).
+**Merged v1 policy (Codex review + room consensus), per user approval:**
+1. Keep `execute_code`/`terminal` in the toolset per the MVP requirement, but scope
+   their working directory to a dedicated, disposable pilot-workspace path, separate
+   from this skill's own files and any governance/kanban-task content.
+2. Explicitly prohibited from use on any work unit that is blocked, consequential, or
+   in the "Agent/system configuration change" category. These tools run the bounded,
+   already-approved representative Pilot task only — never anything still awaiting
+   human review.
+3. **Evidence label: Advisory-bounded, accepted residual risk for v1** — see
+   `references/evidence-labels-and-runtime-enforcement.md`. No filesystem/network
+   sandbox exists in this runtime; the dedicated-directory scoping improves procedure
+   and auditability, it is not a security boundary. Do not represent it as one.
+4. Logged as a "requires additional infrastructure for Enforced status" item — a
+   future revision with real sandboxing (OS-level permissions, container, scoped
+   credentials) is a tracked upgrade, not a forgotten gap.
+
 - `web_search`, `web_extract`
 - `read_file`, `write_file`, `patch`, `search_files`
-- `execute_code` or `terminal` (whichever this deployment's profile convention uses)
+- `execute_code` or `terminal` (whichever this deployment's profile convention uses) —
+  working directory scoped to the disposable pilot workspace per policy above
 
 ## Explicitly NOT granted in v1
 - Any tool that performs a consequential external action directly (publish, send
