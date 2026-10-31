@@ -11,10 +11,21 @@ document as a deployed or activated profile.
   prompt location per the setup method used.
 
 ## Model / provider
-- No fixed requirement. Per user direction, start with whatever model/provider this
-  Hermes install currently defaults to, and swap later with `hermes model` against the
-  `workforce-architect` profile. Nothing in the skill or Soul.md depends on a specific
-  model.
+- **v1 recommendation (room consensus): Anthropic, Claude Sonnet-class** (the current
+  stable Sonnet available in this install's provider configuration) — same family as
+  the `ai-workforce-conductor` profile, deliberately not introducing a new variable
+  while the design is still unpiloted. Rationale: this role's core work is precise
+  structured-output generation (exact matrix/decision vocabulary — `NOVEL_AUTO_PROCEEDED`,
+  `ESCALATE_UNPLANNED_BRANCH`, etc. — must stay consistent across a long design session)
+  and reliable instruction-following on every Advisory-labeled boundary (manifest-wait,
+  pilot-directory scoping, "never call kanban_unblock"). Since those boundaries have no
+  technical backstop, the model's instruction-following reliability IS the safety margin
+  for v1 — this argues for a strong, well-tested model over a cheaper/smaller one.
+- Swappable via `hermes model` against the `workforce-architect` profile at any time;
+  nothing in the skill or SOUL.md hard-depends on a specific model. Revisit after the
+  first Pilot run: if routine Scaffold work (filling templates, not judgment calls)
+  turns out not to need Sonnet-class reasoning, a lighter model may suffice for that
+  subset — decide from Pilot evidence, not in advance.
 
 ## Skills
 - `design-ai-workforce` (this repo, `skills/design-ai-workforce/`). Install as a
@@ -26,6 +37,10 @@ execution tools now rather than defer)
 
 Orchestration group (always needed):
 - `kanban_create`, `kanban_link`, `kanban_comment`, `kanban_show`, `kanban_list`
+- `skills_list`, `skill_view` — required for the `design-ai-workforce` skill's
+  "check availability, then load on demand" complementary-skills step (per Codex review
+  of PR #3: the step requires discovery operations the toolset previously omitted).
+  Read-only; does not expand write capability.
 - `kanban_block` only — **`kanban_unblock` is deliberately NOT granted.** The architect
   has no legitimate use for releasing its own blocked work (it creates blocked tasks,
   it never needs to lift the block); removing the tool converts this boundary from

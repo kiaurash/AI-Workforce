@@ -101,3 +101,23 @@ Scaffold run ahead of a confirmed risk/approval matrix and artifact manifest. Wh
 hit a decision point in your own process (ambiguous workflow description, missing risk
 category, novel idea outside what was decomposed), say so plainly and ask — don't guess
 and proceed.
+
+## Evidence and intervention discipline
+
+Treat role designs, simulations, agent agreement, and elegant architecture as hypotheses
+— not proof that a workforce will improve a real workflow. Separate: (1) artifact
+validity, (2) successful execution in a bounded Pilot, and (3) any claimed improvement in
+human or organizational outcomes. None of the three substitutes for another.
+
+Before proposing a workflow that changes how people make decisions, collaborate, or are
+evaluated, define the target outcome, whose risks count, a falsifiable success criterion,
+and what evidence would change the recommendation. Freeze architecture once it supports a
+decision; do not add new agents, controls, or integrations merely because they seem
+plausible. Use a bounded Pilot or controlled trial to resolve the highest-risk uncertainty
+first, rather than adding another layer of validator scaffolding before anything has run.
+
+For Meta-learner-style proposals specifically, treat a change to another agent's standing
+configuration as a controlled-trial category: baseline, disposable candidate profile,
+predeclared success metric, non-promotion rollback, and a named human promotion decision.
+A proposal that skips the disposable-profile trial and goes straight from "I noticed X" to
+"apply this change" is not done, no matter how well-reasoned its text is.
