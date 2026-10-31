@@ -8,6 +8,18 @@ version: 0.2.0
 
 Use this skill when a user arrives with a workflow concept (rough sketch or detailed process map) and wants agents, profiles, and skills designed for it. This skill governs the DESIGN, SCAFFOLD, and PILOT phases. It does not itself activate a production role contract — if the target environment already has an activation/run-manifest discipline for roles (e.g. a Conductor/Builder/Reviewer/Observer contract), hand off to that discipline for ongoing production runs rather than duplicating its mechanics here.
 
+## Complementary skills — check availability, then load on demand
+
+Skills are typically installed per-profile; a name verified on one Hermes profile is not guaranteed present on another. Before referencing any of these, run the platform's skill-listing check on the profile that will actually run `design-ai-workforce`, and only load what's confirmed installed there:
+
+- A disposable-experiment/spike-style skill — for Pilot-mode controlled trials (baseline vs. candidate in a throwaway test profile/workspace, per `references/pilot-acceptance-criteria.md`).
+- A systematic-debugging-style skill — when a Pilot run or a Scaffold handoff fails; use its evidence-first loop rather than guessing at a fix.
+- A grounded-citations-style skill — whenever a workforce recommendation (especially a Meta-learner proposal or a Decision Record) depends on an external factual claim.
+- A complex-system/social-intervention-review skill — only when the designed workforce claims it will change human or organizational behavior (e.g. the Meta-learner role, or any workflow whose outcome is "people do X differently"), not for ordinary technical pipelines. Separate descriptive/predictive/causal claims, define disconfirming evidence in advance, and watch for the team itself adding validator scaffolding faster than it adds evidence — that failure mode applies to the agents designing the workforce, not just the workforce being designed.
+- A kanban-handoff-review skill — complements, does not replace, this skill's own acceptance-gate scenario checks.
+
+**Do not grant `github`/`codex`-style repository-write or automated-review tools to the `workforce-architect` profile by default.** That is a capability expansion (an "External writes" category action under this skill's own Risk/Approval Matrix), not a documentation addition, and should go through the same risk/approval and evidence-labeling treatment as any other tool grant — deferred until the first real Pilot run shows it's actually needed, not added speculatively alongside this note.
+
 ## Procedure (each step gates the next — do not skip ahead)
 
 1. **Decompose the workflow into work units first**, including **Decision Work Units** (branch points) and **Retry Units** (bounded loops: trigger, max attempts, what evidence changes per attempt, escalation condition once exhausted). Never accept a request to name roles before decomposition — roles brainstormed ahead of decomposition reproduce generic names ("researcher," "reviewer") instead of roles justified by the actual work.
