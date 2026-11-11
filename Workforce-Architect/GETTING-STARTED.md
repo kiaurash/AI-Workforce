@@ -25,10 +25,23 @@ running production work — that comes later, deliberately, after a Pilot.
 
 The `design-ai-workforce` skill lives in this repo under
 `Workforce-Architect/skills/design-ai-workforce/`. It is **not** in the official Hermes
-skill catalog (you can't `hermes skills install` it) — it's a personal skill you install
-from this repo's content. Two ways to do it:
+Hub catalog browse list, but it CAN be installed directly from its raw GitHub URL —
+confirmed working, it correctly pulls the linked `templates/` and `references/` files
+too, not just the single `SKILL.md`. This is now the easiest method; two others are
+listed below if you want them.
 
-### Option A — ask your Hermes agent to do it for you (recommended)
+### Option A — install directly from the URL (recommended, simplest)
+
+```
+hermes skills install "https://raw.githubusercontent.com/kiaurash/AI-Workforce/main/Workforce-Architect/skills/design-ai-workforce/SKILL.md"
+```
+
+This fetches the SKILL.md, runs Hermes's security scan on it, and if allowed, installs
+it (with all its linked files) into your **active profile's** skill directory
+automatically — Hermes resolves the correct location for you, so there's no path to get
+wrong here.
+
+### Option B — ask your Hermes agent to do it for you
 
 Start a normal Hermes chat and say something like:
 
@@ -37,39 +50,55 @@ Start a normal Hermes chat and say something like:
 > skill on this profile using `skill_manage(action='create')` plus the matching
 > `write_file` calls for its `templates/` and `references/` subfolders.
 
-Your Hermes agent has the tools to clone the repo and create the skill directly — this
-is the easiest path and avoids any manual file-copying mistakes.
+Your Hermes agent has the tools to clone the repo and create the skill directly.
 
-### Option B — do it manually
+### Option C — do it manually
 
 ```
 git clone https://github.com/kiaurash/AI-Workforce.git
 ```
 
 Then copy `AI-Workforce/Workforce-Architect/skills/design-ai-workforce/` into your own
-Hermes skills directory, preserving the `templates/` and `references/` subfolders:
+Hermes profile's skills directory, preserving the `templates/` and `references/`
+subfolders. **Resolve your profile's actual home first — never hardcode `~/.hermes` or
+`$LOCALAPPDATA/hermes`, since a named profile lives at a different path:**
 
 ```
-# Linux/macOS
-cp -r AI-Workforce/Workforce-Architect/skills/design-ai-workforce ~/.hermes/skills/design-ai-workforce
+# Find your active profile's home (works whether you're on the default
+# install or a named profile) -- ask your Hermes agent, or run:
+hermes profile show <your-profile-name>
 
-# Windows (git-bash / MSYS, matches Hermes's terminal tool)
-cp -r AI-Workforce/Workforce-Architect/skills/design-ai-workforce "$LOCALAPPDATA/hermes/skills/design-ai-workforce"
+# Then copy into THAT profile's skills directory:
+cp -r AI-Workforce/Workforce-Architect/skills/design-ai-workforce "$HERMES_HOME/skills/design-ai-workforce"
 ```
 
-(If you're running a Hermes **profile** rather than the default install, use that
-profile's `skills/` directory instead — see `hermes profile` or ask your instructor
-which profile you should be using for this course.)
+If you're not sure what `$HERMES_HOME` resolves to for your setup, just ask your Hermes
+agent "what is my active profile's home directory?" and use that path instead of
+guessing. **Each profile that needs this skill needs its own copy or installation** —
+installing it once does not make it available to a different profile.
 
-## Step 2: Start a fresh session and confirm the skill loaded
+## Step 2: Verify the install, then start a fresh session
+
+After installing (by any of the three options above), verify it actually landed before
+assuming it worked:
+
+```
+hermes skills list
+```
+
+Confirm `design-ai-workforce` appears in the output, enabled, for the profile you
+intend to use. If it's missing, re-check which profile you installed into — a common
+mistake is installing into the default profile while actually running a named one (or
+vice versa).
 
 **Important:** Hermes loads its skill list once per session start. If your agent was
 already running when you installed the skill, start a new session/chat before
-continuing — otherwise the skill won't be visible yet.
+continuing — `hermes skills list` showing it is not the same as your current chat
+having loaded it.
 
-In a fresh chat, ask: "What skills do you have available?" or just start describing
-your workflow (the skill's description — "Use when designing a multi-agent AI
-workforce" — should cause it to load automatically when relevant).
+In a fresh chat, confirm it's usable by asking: "What skills do you have available?" or
+just start describing your workflow (the skill's description — "Use when designing a
+multi-agent AI workforce" — should cause it to load automatically when relevant).
 
 ## Step 3: Bring a real workflow idea, not a hypothetical one
 
