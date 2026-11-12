@@ -1,14 +1,10 @@
 # Workforce Traceability Matrix
 
-One row per work unit. The roster is derived from this matrix, not brainstormed. Give
-every row a short, stable **Row ID** (e.g. `W1`, `W2`, `D1` for Decision Work Units) —
-`templates/role-soul.md` and other generated artifacts cite rows by ID rather than
-restating their fields, so a later correction here doesn't leave a stale claim
-elsewhere.
+One row per work unit. The roster is derived from this matrix, not brainstormed.
 
-| Row ID | Workflow Outcome | Work Unit | Input / Source of Truth | Output Artifact / Schema | Owner Agent | Allowed Tools | Verifier / Evidence | Risk Category | Approval Record | Escalation Path |
-|---|---|---|---|---|---|---|---|---|---|---|
-| W1 | Published blog post | Fact-check draft | Draft + source list | Annotated draft (pass/fail notes) | Fact-Checker | web search, read-only doc access | Human skim or second-agent spot-check | Low (internal doc) | None required | Flag back to Writer if sources unverifiable |
+| Workflow Outcome | Work Unit | Input / Source of Truth | Output Artifact / Schema | Owner Agent | Allowed Tools | Verifier / Evidence | Risk Category | Approval Record | Escalation Path |
+|---|---|---|---|---|---|---|---|---|---|
+| Published blog post | Fact-check draft | Draft + source list | Annotated draft (pass/fail notes) | Fact-Checker | web search, read-only doc access | Human skim or second-agent spot-check | Low (internal doc) | None required | Flag back to Writer if sources unverifiable |
 
 For a Decision Work Unit, replace "Output Artifact" with "Decision Record" (see templates/decision-record.md) and list anticipated branches as sub-rows, each with its own risk category, approval record, and innovation envelope (authorized artifact/destination types, tool/data scope, max extra tasks/iterations, cost/time budget, prohibited objective changes, review owner/deadline) governing whether a novel discovery within that branch's family may auto-proceed.
 
