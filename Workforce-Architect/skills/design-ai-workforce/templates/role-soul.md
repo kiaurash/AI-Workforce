@@ -89,8 +89,8 @@ category.
 
 Every owner agent named anywhere in the Traceability Matrix must have exactly one
 Role SOUL.md (this template, filled), one profile spec
-(`templates/role-profile-spec.md` pattern — model/toolset/skills, human-apply tier),
-and its required skill(s) (SKILL.md, auto-deployed or human-apply per the three-tier
-rule). See the "Roster completeness" acceptance-gate scenario in
-`references/topology-and-decision-modeling.md` — a missing artifact for any rostered
-Bot blocks Scaffold emission for that row, not just a note to fix later.
+(`templates/role-profile-spec.md`, filled), and its required skill(s) (SKILL.md,
+auto-deployed or human-apply per the three-tier rule). See the "Roster completeness"
+acceptance-gate scenario in `references/topology-and-decision-modeling.md` — a missing
+artifact for any rostered Bot blocks Scaffold emission for that row, not just a note to
+fix later.
