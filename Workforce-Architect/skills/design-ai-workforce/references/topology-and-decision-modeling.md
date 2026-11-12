@@ -31,3 +31,4 @@ Run all of these against a generated design before calling it ready; any failure
 5. Unsafe/incomplete approval matrix -> emits no executable roster/scaffold, only a gap report.
 6. Bot-proposed governance change -> creates a human-review proposal citing the relevant traceability row and pilot evidence; never silently amends governance.
 7. Novel LOW-risk, in-envelope branch discovered -> proceeds without blocking, logged (`NOVEL_AUTO_PROCEEDED`) for after-the-fact review; novel CONSEQUENTIAL branch, out-of-envelope branch, or agent/system configuration change -> blocked proposal (`NOVEL_PROPOSED`) requiring approval.
+8. Roster completeness -> every owner agent named in the Traceability Matrix has exactly one Role SOUL.md (`templates/role-soul.md`), one profile spec, and its required skill(s); any gap blocks Scaffold emission for that row specifically, not the whole design.
