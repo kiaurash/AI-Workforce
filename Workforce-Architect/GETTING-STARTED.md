@@ -42,23 +42,26 @@ running production work — that comes later, deliberately, after a Pilot.
 ## Step 1: Get the skill onto your machine
 
 The `design-ai-workforce` skill lives in this repo under
-`Workforce-Architect/skills/design-ai-workforce/`. It is **not** in the official Hermes
-skill catalog (you can't `hermes skills install` it) — it's a personal skill you install
-from this repo's content. Two ways to do it:
+`Workforce-Architect/skills/design-ai-workforce/`. It is not in the official Hermes
+skill catalog by name, but `hermes skills install` does accept a direct URL to a raw
+`SKILL.md`, and Hermes automatically fetches that skill's linked `templates/` and
+`references/` files from the same location — so for this specific skill, the URL
+install pulls the complete bundle, not just one file. Two ways to install it:
 
-### Option A — ask your Hermes agent to do it for you (recommended)
+### Option A — install directly from the repo (simplest, no git clone needed)
 
-Start a normal Hermes chat and say something like:
+```
+hermes skills install --yes "https://raw.githubusercontent.com/kiaurash/AI-Workforce/main/Workforce-Architect/skills/design-ai-workforce/SKILL.md"
+```
 
-> Clone `https://github.com/kiaurash/AI-Workforce` to a local folder, read the contents
-> of `Workforce-Architect/skills/design-ai-workforce/`, and install it as a personal
-> skill on this profile using `skill_manage(action='create')` plus the matching
-> `write_file` calls for its `templates/` and `references/` subfolders.
+That's it — no manual file copying. (`--yes` skips the interactive confirmation
+prompt; drop it if you'd rather review the install prompt first.) If you're running a
+Hermes **profile** rather than the default install, run this from inside that
+profile's own session so it installs into the right `skills/` directory.
 
-Your Hermes agent has the tools to clone the repo and create the skill directly — this
-is the easiest path and avoids any manual file-copying mistakes.
+### Option B — create a local directory (clone the whole repo)
 
-### Option B — do it manually
+Use this if you want your own editable copy, or Option A doesn't work on your setup:
 
 ```
 git clone https://github.com/kiaurash/AI-Workforce.git
