@@ -3,6 +3,24 @@
 A step-by-step guide for students new to Hermes who want to design a multi-agent AI
 workforce using the `design-ai-workforce` skill. No prior Hermes experience assumed.
 
+## Current maturity — what's actually been tested
+
+Design and Scaffold's first-run blocking were verified against real cold-start Pilot
+runs (PRs #3–#6): decomposition-before-roster-naming, the Risk/Approval Matrix hard
+gate, Decision Work Unit mechanics (including a fail-closed provenance rule added
+after a real Pilot failure), and the first-run all-blocked Scaffold rule all held on
+blind runs with no accumulated design context. A fresh Meta-learner role was also
+tested and correctly could not act on its own improvement proposal — it could only
+draft a file for human review.
+
+**Task execution (an agent actually doing the designed work, e.g. W1–W6) was
+deliberately never exercised.** Profile activation remains a human-applied step, and
+no Pilot run has validated that an activated role actually produces correct output
+against its row's acceptance evidence. Treat any workforce you design as **Design/
+Scaffold-validated, execution-unproven** until you've activated and smoke-tested each
+role, then run a bounded execution Pilot of your own — before trusting it with
+anything consequential.
+
 ## What you'll end up with
 
 By the end of this guide you will have: a `design-ai-workforce` skill installed and
