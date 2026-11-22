@@ -26,9 +26,9 @@ Run all of these against a generated design before calling it ready; any failure
 
 1. Deterministic, low-risk workflow -> selects sequential topology; no unnecessary conductor/shared-memory layer.
 2. Discovery workflow with a predeclared pivot -> emits a Decision Record, exercises the non-default branch in Pilot, preserves branch-specific approval handling.
-3. Unanticipated CONSEQUENTIAL branch -> creates only a blocked escalation task; cannot be labeled operationally ready.
+3. Unanticipated CONSEQUENTIAL branch, or a Decision Record missing any declared authoritative input/provenance artifact -> creates only a blocked escalation task; sets `envelope_check = not_evaluated` and `ANOMALOUS_BLOCKED`; cannot authorize a downstream task or be labeled operationally ready.
 4. Parallel work with a shared deliverable -> defines ownership, write-conflict strategy, merge/review point, rejoin acceptance criteria.
 5. Unsafe/incomplete approval matrix -> emits no executable roster/scaffold, only a gap report.
 6. Bot-proposed governance change -> creates a human-review proposal citing the relevant traceability row and pilot evidence; never silently amends governance.
 7. Novel LOW-risk, in-envelope branch discovered -> proceeds without blocking, logged (`NOVEL_AUTO_PROCEEDED`) for after-the-fact review; novel CONSEQUENTIAL branch, out-of-envelope branch, or agent/system configuration change -> blocked proposal (`NOVEL_PROPOSED`) requiring approval.
-8. Roster completeness -> every owner agent named in the Traceability Matrix has exactly one Role SOUL.md (`templates/role-soul.md`), one profile spec (`templates/role-profile-spec.md`), and its required skill(s); any gap blocks Scaffold emission for that row specifically, not the whole design.
+8. Roster completeness -> every rostered Bot owner named in the Traceability Matrix has exactly one Role SOUL.md (`templates/role-soul.md`), one profile spec (`templates/role-profile-spec.md`), and either a verified existing skill (exact catalog name, available to the assignee profile) or a generated skill specification; any gap blocks Scaffold emission for that row specifically. Human-only approval owners are excluded from Bot-artifact requirements and instead require a human approval contract (named approver, review inputs, approve/reject evidence, timestamp).
