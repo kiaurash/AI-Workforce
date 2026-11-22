@@ -26,10 +26,11 @@ You own these Traceability Matrix rows (cite by Row ID, do not restate their fie
 ## Tool boundary
 - Allowed tools: `web_search`, `web_extract`, `read_file`, `write_file`.
 - Explicitly absent:
-  * CMS publishing tools (Enforced: absent).
-  * Outbound communication / email broadcast tools (Enforced: absent).
-  * `kanban_unblock` (Enforced: absent).
-  * `skill_manage` or configuration mutation tools (Enforced: absent).
+  * CMS publishing tools (Proposed omission; verify after profile activation).
+  * Outbound communication / email broadcast tools (Proposed omission; verify after profile activation).
+  * `kanban_unblock` (Proposed omission; verify after profile activation).
+  * `skill_manage` or configuration mutation tools (Proposed omission; verify after profile activation).
+- Evidence basis: This is a human-apply SOUL/profile specification, not an activated runtime profile. Tool absence is Governed/unverified until the activation smoke test reads back the actual toolset.
 
 ## Operating procedure
 - Acceptance evidence / verifier:

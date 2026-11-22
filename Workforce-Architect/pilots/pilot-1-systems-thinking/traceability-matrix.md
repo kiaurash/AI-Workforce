@@ -15,6 +15,8 @@ Outcome: Weekly publication-ready blog post and newsletter draft applying System
 | W6 | Fact-checked newsletter draft | Editorial Packaging | `verified-draft.md` + `fact-check-report.md` | `publication-package.md` (Draft, headlines, newsletter summary, community prompt) | systems-writer | read_file, write_file | Complete publication checklist satisfied | Low (internal) | None required | Return to W4 if packaging reveals narrative flaws |
 | G1 | Published community post & newsletter broadcast | Human Publication Approval Gate | `publication-package.md` + `fact-check-report.md` + `decision-record-d1.md` | Published blog post & newsletter send | human-editor | External CMS / Email service (Human only) | Human review of draft, citations, and community prompt | Consequential (External writes & Outbound communication) | Human editor signature & timestamp | Cancel/edit post if rejected by human editor |
 
+**Roster-completeness scope:** `human-editor` is a human-only approval owner, not a rostered Bot. The one-SOUL/profile-spec/skills requirement applies only to rostered Bot owners (`systems-researcher`, `systems-writer`, and `fact-checker`). G1 instead requires a human approval contract: named approver, review inputs, explicit approve/reject decision, and timestamp recorded before any publication or send.
+
 ---
 
 ## Decision Work Unit: D1 (Novelty & Saturation Triage)

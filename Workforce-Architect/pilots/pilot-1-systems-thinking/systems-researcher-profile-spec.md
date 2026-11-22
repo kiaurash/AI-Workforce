@@ -1,6 +1,6 @@
 # Profile Spec — systems-researcher
 
-**Status: spec for human setup. Not activated, not deployed.** A human applies this via the desktop app, `hermes profile` commands, or direct `config.yaml` / profile-directory setup, then verifies it with the activation smoke test below before relying on it.
+**Status: spec for human setup. Not activated, not deployed.** A human applies this via the desktop app or supported `hermes profile` / `hermes config` commands (never by hand-editing `config.yaml`), then verifies it with the activation smoke test below before relying on it.
 
 ## Identity
 - Profile name: `systems-researcher`
@@ -12,16 +12,16 @@
 - Reason: Requires disciplined boolean query generation, accurate parsing of academic and technical literature, and strict adherence to threshold criteria in Decision Work Units without hallucinating saturation consensus.
 
 ## Skills
-- `research:arxiv` (Search arXiv papers for foundational systems thinking and AI systems preprints).
-- `web:blocked-page-recovery` (Fallbacks when crawling academic or industry whitepapers).
+- `arxiv` (Search arXiv papers for foundational systems thinking and AI systems preprints).
+- `blocked-page-recovery` (Fallbacks when crawling academic or industry whitepapers).
 
 ## Toolset
 - Required: `web_search`, `web_extract`, `read_file`, `write_file`.
 - Explicitly NOT granted:
-  * CMS publishing tools (Enforced: absent).
-  * Outbound communication / email broadcast tools (Enforced: absent).
-  * `kanban_unblock` or orchestrator tools (Enforced: absent).
-  * `skill_manage` or file modification access to other agents' directories (Enforced: absent).
+  * CMS publishing tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * Outbound communication / email broadcast tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * `kanban_unblock` or orchestrator tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * `skill_manage` or file modification access to other agents' directories (Proposed: omit at setup; verify absent in activation smoke test).
 
 ## Memory / data boundary
 - May retain: Research query history, bibliography of verified systems thinking papers, domain glossary.

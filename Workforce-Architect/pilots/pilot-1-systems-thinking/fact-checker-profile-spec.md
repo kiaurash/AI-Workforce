@@ -1,6 +1,6 @@
 # Profile Spec — fact-checker
 
-**Status: spec for human setup. Not activated, not deployed.** A human applies this via the desktop app, `hermes profile` commands, or direct `config.yaml` / profile-directory setup, then verifies it with the activation smoke test below before relying on it.
+**Status: spec for human setup. Not activated, not deployed.** A human applies this via the desktop app or supported `hermes profile` / `hermes config` commands (never by hand-editing `config.yaml`), then verifies it with the activation smoke test below before relying on it.
 
 ## Identity
 - Profile name: `fact-checker`
@@ -12,16 +12,16 @@
 - Reason: Requires zero tolerance for unsupported claims, strict citation cross-checking, and adversarial evaluation of draft assertions.
 
 ## Skills
-- `research:grounded-citations` (Grounding answers and draft assertions in verifiable sources).
-- `web:blocked-page-recovery` (Accessing primary sources behind soft walls or complex formatting).
+- `grounded-citations` (Grounding answers and draft assertions in verifiable sources).
+- `blocked-page-recovery` (Accessing primary sources behind soft walls or complex formatting).
 
 ## Toolset
 - Required: `web_search`, `web_extract`, `read_file`, `write_file`.
 - Explicitly NOT granted:
-  * CMS publishing tools (Enforced: absent).
-  * Outbound communication / email broadcast tools (Enforced: absent).
-  * `kanban_unblock` or orchestrator tools (Enforced: absent).
-  * `skill_manage` or configuration mutation tools (Enforced: absent).
+  * CMS publishing tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * Outbound communication / email broadcast tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * `kanban_unblock` or orchestrator tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * `skill_manage` or configuration mutation tools (Proposed: omit at setup; verify absent in activation smoke test).
 
 ## Memory / data boundary
 - May retain: Fact-check rubrics, database of verified citations, publication verification records.

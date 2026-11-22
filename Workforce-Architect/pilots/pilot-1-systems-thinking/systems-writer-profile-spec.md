@@ -1,6 +1,6 @@
 # Profile Spec — systems-writer
 
-**Status: spec for human setup. Not activated, not deployed.** A human applies this via the desktop app, `hermes profile` commands, or direct `config.yaml` / profile-directory setup, then verifies it with the activation smoke test below before relying on it.
+**Status: spec for human setup. Not activated, not deployed.** A human applies this via the desktop app or supported `hermes profile` / `hermes config` commands (never by hand-editing `config.yaml`), then verifies it with the activation smoke test below before relying on it.
 
 ## Identity
 - Profile name: `systems-writer`
@@ -17,11 +17,11 @@
 ## Toolset
 - Required: `read_file`, `write_file`.
 - Explicitly NOT granted:
-  * `web_search` and `web_extract` (Enforced: absent to enforce strict segregation of duties; writer must build solely from verified researcher dossier).
-  * CMS publishing tools (Enforced: absent).
-  * Outbound communication / email broadcast tools (Enforced: absent).
-  * `kanban_unblock` or orchestrator tools (Enforced: absent).
-  * `skill_manage` or configuration mutation tools (Enforced: absent).
+  * `web_search` and `web_extract` (Proposed: omit at setup; verify absent in activation smoke test to enforce strict segregation of duties; writer must build solely from verified researcher dossier).
+  * CMS publishing tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * Outbound communication / email broadcast tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * `kanban_unblock` or orchestrator tools (Proposed: omit at setup; verify absent in activation smoke test).
+  * `skill_manage` or configuration mutation tools (Proposed: omit at setup; verify absent in activation smoke test).
 
 ## Memory / data boundary
 - May retain: Formatting templates, Meadows leverage point structural references, audience persona notes.

@@ -26,6 +26,9 @@
   and full detail in `decision-brief.md`
 - **Observed by**: hermes, independently cross-checked by ai-workforce-conductor
   (attempted path verification) and open for research-analyst's independent read
-- **Pass/fail**: Design and Scaffold modes PASS per `decision-brief.md`'s operational-
-  validation list; execution-layer operational validity NOT YET TESTED (deliberately
-  stopped before unblocking any task, per user direction)
+- **Pass/fail**: **PARTIAL / CORRECTIONS REQUIRED.** Decomposition-before-roster and
+  the first-run all-blocked Scaffold control passed. Independent review found a false
+  board-control assertion, unverified runtime tool claims, invalid skill identifiers,
+  and a D1 decision unsupported by its missing declared source artifacts. The package
+  has been corrected to fail closed; execution-layer validity remains NOT TESTED.
+  Pilot #2 is blocked pending independent acceptance of the corrected package.

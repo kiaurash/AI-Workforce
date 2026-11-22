@@ -27,35 +27,36 @@ to decompose the workflow and withhold roster naming until decomposition was don
 - 8 kanban tasks exist on the live board — verified via `kanban_show`/`kanban_list`,
   not the chat transcript — correctly parent-chained (W1→W2→D1→W3→W4→W5→W6→G1).
 
-## Operationally validated (the mechanism actually fired, not just documented)
+## Observed behavior and validated controls
 
 1. **Decomposition-before-roster-naming held.** The cold-start agent asked five
    categories of clarifying questions and refused to name agents until the workflow
    was decomposed into work units — exactly the SKILL.md step 1 requirement, observed
    on a blind run, not asserted by us.
-2. **Decision Work Unit mechanics fired correctly.** D1's Decision Record populated
-   every required field (evidence/provenance, explicit numeric saturation threshold,
-   confidence 90%, innovation envelope check = `pass`, correct `NOVEL_AUTO_PROCEEDED`
-   flag for an in-envelope low-risk pivot) — this is the single most-debated mechanism
-   in the whole design (Codex findings, the envelope-check addition, the three-way
-   novel-branch flag), and it worked on a cold run.
-3. **Risk/Approval Matrix hard gate held against the hardened template.** All 7
-   categories were explicitly analyzed (no blank/copied "not applicable" — the
-   REQUIRED-prompt template change from PR #3's review actually changed behavior:
-   each "not applicable" line cites a specific reason, e.g. "no agent profile possesses
-   CMS publishing tools").
-4. **First-run Scaffold blocking rule fired correctly — the most important single
-   result of this Pilot.** Every one of the 8 tasks was created `blocked`, including
-   the low-risk rows (W1, W3, W4, W6) that the pre-Codex-review version of this skill
-   would NOT have blocked. This is the exact gap Codex's source-level review found in
-   PR #3, and the fix verifiably works on a blind run.
-5. **Board-wide `kanban_unblock` caveat self-surfaced.** The cold-start agent
-   proactively added a "Runtime Safety & Board Assumptions" section citing the
-   board-configuration dependency — it had read `references/evidence-labels-and-
-   runtime-enforcement.md`, not just the main procedure, unprompted.
+2. **Decision Record structure was populated, but its evidence gate failed.** D1
+   included all expected fields and emitted `NOVEL_AUTO_PROCEEDED`; independent review
+   found that the claimed framing brief, research dossier, 42-article count, and 90%
+   confidence were unsupported because the source artifacts were never created or
+   committed. The corrected record is `ANOMALOUS_BLOCKED`, `envelope_check =
+   not_evaluated`, with W3 held blocked. This validates template population, **not**
+   decision correctness or authorization.
+3. **Risk/Approval Matrix category coverage held, but runtime labels failed review.**
+   All 7 categories were explicitly addressed with no blank/copied placeholders.
+   However, it mislabeled proposed human-apply tool omissions as Enforced runtime
+   facts. The corrected matrix labels them proposed constraints, Governed/unverified
+   pending profile activation and smoke tests.
+4. **First-run Scaffold blocking rule fired correctly — the strongest result of this
+   Pilot.** Every one of the 8 tasks was created `blocked`, including the low-risk rows
+   (W1, W3, W4, W6) that the pre-Codex-review version would not have blocked. This is
+   verified against live kanban state.
+5. **Board-control labeling failed independent review.** The generated matrix falsely
+   asserted that no agent possesses `kanban_unblock`. Multiple non-human profiles on
+   this shared board can possess it. The corrected package states that blocked-task
+   dispatch is Enforced, while human-exclusive release is not Enforced here and remains
+   Governed by procedure and board composition.
 6. **Unrelated concurrent board activity did not contaminate the run.** One
    pre-existing task from a different profile/project (`wf-instructor`'s separate
-   "docu-dramedy" initiative) coexisted on the same board with zero cross-task
+   "docu-dramedy" initiative) coexisted on the same board with zero observed cross-task
    interference — checked directly via `kanban_show`.
 
 ## Failed / unknown / real findings (not failures of the skill, findings from using it)
@@ -65,31 +66,48 @@ to decompose the workflow and withhold roster naming until decomposition was don
    Matrix was the correctly-structured saved artifact. SKILL.md's step order (matrix
    before risk matrix) wasn't followed to the letter in the narration, even though the
    final artifacts are both correct and complete.
-2. **Roster-completeness gate wording gap**: the gate requires "its required skill(s)"
-   per Bot; the cold-start agent referenced existing catalog skills (`research:arxiv`)
-   rather than generating new bespoke SKILL.md files. Reasonable adaptation, but the
-   gate's current wording implies generation is mandatory — needs a wording fix:
-   "reference an existing skill OR generate a new one," per @ai-workforce-conductor.
-3. **Not yet tested**: actual task execution (unblocking W1 and letting an agent run
-   it for real) — Pilot #1 stops at Scaffold. Operational validity for the *execution*
-   layer (do agents actually produce correct outputs when run, does the Retry Unit
-   logic actually trigger on a real inconclusive-research case) remains unproven.
-4. **Not yet tested**: the "Agent/system configuration change" controlled-trial gate
-   — no work unit in this workflow touches that category. That's Pilot #2's job
-   (`wf-meta-learner`), still pending and still blocked on the SWARM-Wisdom naming
-   question from earlier in this thread.
+2. **Roster-completeness and catalog-name findings**: the cold-start agent referenced
+   existing skills rather than generating bespoke role skills, which is a reasonable
+   interpretation if the gate explicitly allows "reference an existing skill OR
+   generate a new one." It also emitted invalid qualified names (`research:arxiv`,
+   `web:blocked-page-recovery`, `research:grounded-citations`); these are corrected in
+   the profile specs to `arxiv`, `blocked-page-recovery`, and `grounded-citations`.
+   Human-only owner `human-editor` is now explicitly excluded from Bot artifact
+   completeness and governed by a separate approval contract.
+3. **D1 evidence provenance failed**: the cold-start agent claimed 42 inspected
+   articles and 90% confidence without preserving the declared framing brief or
+   research dossier. The record is downgraded to illustrative and blocked; this is a
+   substantive Pilot finding, not missing documentation to be reconstructed after the
+   fact.
+4. **Proposed tool boundaries are not runtime facts**: no role profile was activated,
+   so all omissions remain proposed constraints pending activation smoke tests.
+5. **Not yet tested**: actual task execution (unblocking W1 and letting an agent run
+   it for real). Operational validity for outputs and Retry Unit behavior remains
+   unproven.
+6. **Not yet tested**: the "Agent/system configuration change" controlled-trial gate.
+   That's Pilot #2's scope, but Pilot #2 remains blocked until this corrected evidence
+   package passes independent re-review.
 
 ## Readiness label (per `references/evidence-labels-and-runtime-enforcement.md`)
 
-**Deployable with governance only** for the Design+Scaffold layer specifically: the
-artifacts are correct and the first-run safety mechanism is confirmed operational, but
-the design has not yet been through real task execution, so it is not yet "deployable
-now" for the full workflow. **Requires additional infrastructure/evidence** before any
-claim beyond Design+Scaffold validity.
+**Requires additional infrastructure/evidence.** The Scaffold first-run blocking
+control is operationally validated, and decomposition/structure generation worked.
+The package is **not deployable** as a workforce design yet: D1's evidence gate failed,
+profile tool boundaries remain proposed until activation smoke tests, and task
+execution was not tested. Pilot #2 must not consume this package until independent
+re-review accepts these corrections.
 
 ## Revisions required before calling this skill fully validated
 
-1. Fix roster-completeness wording (#2 above) — low effort, no architecture change.
-2. Run Pilot #1 part 2 (actual execution) OR accept this as sufficient evidence for
-   Design+Scaffold and move directly to Pilot #2 — human decision, not ours to make.
-3. Resolve the SWARM-Wisdom naming question before starting Pilot #2.
+1. Independently re-review this corrected evidence package.
+2. Update the reusable roster-completeness wording to allow a verified existing skill
+   or a generated skill, and explicitly exclude human-only approval owners from Bot
+   artifact requirements.
+3. In a future execution Pilot, require Decision Records to fail closed when any
+   declared authoritative input artifact is absent; preserve source inventory/query
+   evidence before permitting `envelope_check = pass`.
+4. Activate candidate role profiles only in a disposable test setup, smoke-test their
+   actual tool/skill boundaries, and keep all eight tasks blocked until that evidence
+   is reviewed.
+5. Only then consider Pilot #2; the user has selected a fresh `wf-meta-learner` scope
+   that leaves the unrelated SWARM-Wisdom profiles untouched.
