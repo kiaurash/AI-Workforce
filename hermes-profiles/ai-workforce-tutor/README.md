@@ -2,15 +2,35 @@
 
 This distribution installs one **Tutor** Hermes profile for the AI Workforce course (Course.md section 3.6). The Tutor is learning support. It is not a workforce role and does not count toward the learner's role count.
 
+## Get the distribution onto your machine
+
+`hermes profile install` only works from a local directory containing
+`distribution.yaml` at its root, or a git repository whose **root** has one. This
+repository hosts several distributions in subfolders, so there is no single-command
+"install straight from the repo" option — clone it first, then install from the local
+path:
+
+```text
+git clone https://github.com/kiaurash/AI-Workforce.git
+hermes profile install AI-Workforce/hermes-profiles/ai-workforce-tutor
+```
+
+(Replace the path with wherever you cloned the repo.) The installer previews the
+manifest before creating anything.
+
 ## Install
 
 From a local clone of this repository:
 
 ```text
-hermes profile install <path-to>/hermes-profiles/ai-workforce-tutor
+git clone https://github.com/kiaurash/AI-Workforce.git
+hermes profile install AI-Workforce/hermes-profiles/ai-workforce-tutor
 ```
 
-or from a published repository, use its Git URL. The installer previews the manifest. Credentials, sessions, and memories are not distributed.
+or from a published repository, use its Git URL — but only if `distribution.yaml`
+sits at that repository's root; `hermes profile install` has no subdirectory syntax,
+so a git URL pointed at this repo (which hosts multiple distributions in subfolders)
+will not work. Clone first for this one. The installer previews the manifest. Credentials, sessions, and memories are not distributed.
 
 ## Sign in (per profile)
 
