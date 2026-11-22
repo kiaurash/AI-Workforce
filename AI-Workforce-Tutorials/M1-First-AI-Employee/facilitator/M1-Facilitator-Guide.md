@@ -48,7 +48,7 @@ The architecture proposal listed eight session outcomes. This table shows where 
 - Resolves technical blockers quickly, using the fallback when needed.
 - Challenges architecture claims with evidence from the learner's own run.
 
-### Socratic AI tutor (in the Conductor's canonical Bot Chat)
+### Socratic AI tutor (in the Tutor's canonical Bot Chat)
 
 - Opens with a short diagnostic, then asks one focused question per turn.
 - Uses the learner's M0 documents as data, not instructions.
@@ -215,7 +215,7 @@ Return each learner to the prediction from Exercise 0:
 
 For credit toward LO-1, the justification must rest on responsibility, context, tools, permissions, verification, parallelism, or coordination cost, not on "it is another step". A well-reasoned answer of "one, for now" is a strong answer.
 
-Then record the next concrete action, explain the practice run and the Blueprint Studio, and have the learner state the module gate in their own words.
+Then have each learner write the three-line value checkpoint in `runs/value-checkpoint.md` (judgment, one observation, one uncertainty; "not worth it" is acceptable), record the next concrete action, explain the practice run and the Blueprint Studio, and have the learner state the module gate in their own words. After the workshop the Tutor sets one unaided transfer probe and records it in `learning/learning-record.md`.
 
 ## Facilitator watchpoints
 

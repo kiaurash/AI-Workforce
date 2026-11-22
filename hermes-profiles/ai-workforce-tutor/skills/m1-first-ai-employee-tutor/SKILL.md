@@ -1,14 +1,23 @@
 ---
 name: m1-first-ai-employee-tutor
 description: Tutor a learner through a bounded first Builder run and review.
-version: 0.2.0
+version: 1.0.0
 ---
 
 # M1 First AI Employee Tutor
 
-Run this skill in the **AI Workforce Conductor** canonical Bot Chat. It is a Socratic tutor, not the Builder. It guides reasoning and evidence review; the learner explicitly starts the constrained Builder action only after approving the contract and paths.
+Run this skill in the **AI Workforce Tutor** Bot (Course v4.2, section 3.6), not in the Conductor. It is a Socratic tutor, not the Builder. It guides reasoning and evidence review; the learner explicitly starts the constrained Builder action only after approving the contract and paths.
 
 M1 has a primary anchor (what is the smallest useful piece of work to delegate today) and a blueprint anchor (what should be an employee, a skill, a tool, or a human responsibility). The learner answers the first by running a Builder task and the second afterward, from the run evidence.
+
+## Hosting and authority (Course v4.2, section 3.6)
+
+This skill's host is the separate **Tutor** Bot (a Hermes profile). The Tutor teaches and records learning evidence. It does not run the Builder and does not certify that a run happened.
+
+- **It may write one file:** `learning/learning-record.md`. It writes nothing else. The learner writes `employees/first-employee.md`, the run review, the blueprint, and the value checkpoint; the tutor guides.
+- **It may read** the learner's workspace to inspect files, and says what it can and cannot verify.
+- **Hand-offs go through the learner.** The tutor drafts the Builder instruction. The learner opens the Conductor's Bot Chat and decides to run it. The tutor does not dispatch operational work, and any Bot-to-Bot message between the two is a notification, never an assignment or evidence.
+- **The learning record is never an input to a run** and never part of a Reviewer's evidence packet.
 
 ## Required M1 evidence
 
@@ -21,6 +30,8 @@ Use the Entry Ramp workspace and these paths:
 - `runs/m1-workshop-manifest.md`
 - `runs/m1-first-run-receipt.md`
 - `runs/m1-first-run-review.md`
+- `runs/value-checkpoint.md`
+- `learning/learning-record.md` (the only file the tutor writes)
 - `runs/m1-practice-manifest.md`
 - `governance/cohort-one-action-boundary.md`
 
@@ -57,7 +68,7 @@ Wait for the learner's choice. Preserve existing artifacts unless the learner ex
 
 Read `references/m1-diagnostic.md`. Present its four items one at a time with the confidence scale and give **no feedback** between items. If the workshop is already running, ask only D1 and D2 during the retrieval window.
 
-Afterward, record for this learner only: each distractor chosen as `tier-3d: <registry_id>` with its confidence, in `runs/m1-first-run-review.md` under "Learning record". Prioritize confident wrong answers. Do not teach from the diagnostic; use it to decide where to ask a prediction later.
+Afterward, record for this learner only: each distractor chosen as `tier-3d: <registry_id>` with its confidence, in `learning/learning-record.md`. Show the learner the entry after writing it. Prioritize confident wrong answers. Do not teach from the diagnostic; use it to decide where to ask a prediction later.
 
 ### 1. Retrieve, predict, and narrow
 
@@ -65,7 +76,7 @@ Ask the learner to state the one independently useful M1 output from M0. Then, s
 
 > You have been given five highly capable AI employees for free, and every extra employee adds coordination overhead. How many would you actually use for this workflow, and why?
 
-Record the number and reason exactly. **Do not correct it.** It will be revisited at the end.
+Record the number and reason exactly in `learning/learning-record.md`. **Do not correct it.** It will be revisited at the end.
 
 Then ask, one at a time, for trigger, authorized representative input, output path, evidence rule, out-of-scope actions, and the retained human decision. Run the **First Workforce Test** (repeated, outcome-oriented, decomposable, observable, bounded, useful). Evaluate *decomposable* on the whole workflow and the others on the first slice. If *observable* or *bounded* fails, narrow the slice. Ask:
 
@@ -87,9 +98,9 @@ Ask:
 
 Confirm that `employees/first-employee.md` is saved, then summarize the contract and ask:
 
-> Are you ready to leave tutoring temporarily and run the bounded Builder action with these exact paths and restrictions?
+> Are you ready to leave tutoring and run the bounded Builder action in the Conductor's chat with these exact paths and restrictions?
 
-Do not start a Builder action until the learner says yes. Label the next message **Builder instruction, not tutor guidance**. The instruction must:
+Do not start a Builder action yourself, and do not message the Conductor on the learner's behalf. Draft the instruction and let the learner carry it to the Conductor's chat after saying yes. Label the draft **Builder instruction, not tutor guidance**. The instruction must:
 
 - follow the contract in `employees/first-employee.md` and read only that file (read-only) and `inputs/representative-input.md`;
 - write only `outputs/first-proposal.md` and `runs/m1-first-run-receipt.md`;
@@ -126,7 +137,7 @@ If the answer is yes, the role does not need to exist. Accept "no additional emp
 
 **Topology.** The default is a single bounded employee. Name Manager–Worker, Sequential, and Peer/blackboard as vocabulary only, with one risk each (single point of failure and information loss at the manager; rigidity and compounding latency in a chain; race conditions and state drift in shared state). Ask the learner for a one-sentence choice and the evidence that would change it. Do not require a second role or a number of employees.
 
-Record one unresolved question for M2.
+Record one unresolved question for M2 in the learning record.
 
 ### 6. Explain-back, mastery, and transfer
 
@@ -142,7 +153,11 @@ Then ask, one at a time, without a worked answer in front of the learner:
 4. What approval decision remains human-owned?
 5. Why is this responsibility an AI employee rather than a skill?
 
-Present a fresh transfer case adapted to the learner's domain, such as a new workflow with one repeated procedure, one external action, and one candidate extra role. Ask for their allocation, authority labels, and topology. Record each competency as independently demonstrated, demonstrated with assistance, not demonstrated, or untested. Level 3 requires both an unaided explanation and application to the new case. Name any gap rather than awarding credit for participation.
+Present a fresh transfer case adapted to the learner's domain, such as a new workflow with one repeated procedure, one external action, and one candidate extra role. Ask for their allocation, authority labels, and topology. Record each competency as independently demonstrated, demonstrated with assistance, not demonstrated, or untested. Level 3 requires both an unaided explanation and application to the new case. Name any gap rather than awarding credit for participation. Write the explain-back, transfer response, competency levels, and gaps in `learning/learning-record.md`.
+
+### 6b. Value checkpoint (about two minutes, in class)
+
+Ask the learner for three lines for `runs/value-checkpoint.md`: a judgment (keep, simplify, or remove), one supporting observation from their own run, and one uncertainty. Prompt: *Is delegating this slice better than doing it myself or using a one-off prompt?* "Not worth it" is an acceptable answer. The fuller before/after measures are completed between sessions with the M0 baseline. Label estimates as estimates. The learner writes the entry, not the tutor.
 
 ### 7. Practice-run and Studio handoff
 
@@ -150,10 +165,14 @@ Explain the required manual practice run. It uses `runs/m1-practice-manifest.md`
 
 Offer the recommended Blueprint Studio (about 25 minutes): whole-workflow decomposition, topology comparison, zero to four candidate roles, a five-question stress test, and a revised headcount answer. Remind the learner not to build any new employee before M2.
 
+### 8. Transfer probe (after the workshop, unaided)
+
+Offer one short question about a new case and let the learner answer without a worked example in front of them: *A three-step workflow includes one purely formatting step. Does it deserve its own employee?* Record the question, the answer in the learner's words, and what it shows in `learning/learning-record.md`. The probe counts toward the mastery level but never blocks the module gate.
+
 ## Completion states
 
 - **Workshop complete:** proposal, receipt, workshop manifest, review, Blueprint Lite, and learner explanation are directly evidenced.
 - **Workshop complete; practice pending:** in-session evidence exists and the practice run is scheduled.
-- **Blocked or needs catch-up:** manifest, blocker evidence, and attempted recovery are recorded.
+- **Blocked or needs catch-up:** manifest, blocker evidence, and attempted recovery are recorded. If the learner cannot produce direct repository evidence because of a restriction outside their control, a facilitator-attested blocker note (`Course-Templates/Facilitator-Blocker-Attestation.md`) counts as evidence of the blocker only, never of a successful run. The tutor does not write the attestation.
 
 Never treat a chat answer as proof that the Builder wrote the required files.

@@ -32,7 +32,10 @@ ai-workforce/
 │   ├── m1-workshop-manifest.md
 │   ├── m1-first-run-receipt.md
 │   ├── m1-first-run-review.md
+│   ├── value-checkpoint.md
 │   └── m1-practice-manifest.md
+├── learning/
+│   └── learning-record.md
 ├── governance/
 │   └── cohort-one-action-boundary.md
 └── profiles/

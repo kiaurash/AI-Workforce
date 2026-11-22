@@ -61,7 +61,7 @@ M1-First-AI-Employee/
             └── m1-diagnostic.md
 ```
 
-The Conductor profile carries the runtime copy of the tutor at `hermes-profiles/ai-workforce-conductor/skills/m1-first-ai-employee-tutor/`. The three `references/` files in the package are canonical. When either changes, update the Conductor copy in the same commit.
+The **Tutor** profile (`hermes-profiles/ai-workforce-tutor/`) carries the runtime copy of the tutor at `hermes-profiles/ai-workforce-tutor/skills/m1-first-ai-employee-tutor/`. The three `references/` files in this package are canonical. When either changes, update the Tutor copy in the same commit.
 
 ## The 60-minute shape
 
@@ -93,7 +93,9 @@ ai-workforce/
 │   ├── m1-workshop-manifest.md      (run_type: workshop)
 │   ├── m1-first-run-receipt.md
 │   ├── m1-first-run-review.md
+│   ├── value-checkpoint.md
 │   └── m1-practice-manifest.md      (run_type: practice)
+├── learning/learning-record.md      (written by the Tutor only)
 └── governance/cohort-one-action-boundary.md
 ```
 
@@ -115,7 +117,7 @@ ai-workforce/
 
 ### Individual learner
 
-Open the AI Workforce Conductor's canonical Bot Chat. The M1 tutor skill starts with a short diagnostic, then guides the workbook one question at a time. The Builder action starts only after you approve the contract and file paths.
+Open the **AI Workforce Tutor's** canonical Bot Chat. The M1 tutor skill starts with a short diagnostic, then guides the workbook one question at a time. When you approve the contract and file paths, the Tutor drafts the Builder instruction and you carry it to the **Conductor's** chat to run it. The Tutor does not start the Builder.
 
 ### Builder
 

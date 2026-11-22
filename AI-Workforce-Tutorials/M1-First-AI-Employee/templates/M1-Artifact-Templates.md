@@ -161,13 +161,20 @@ New output path: [...]
 Observed result: [...]
 Remaining issue: [...]
 
-## Learning record
-Diagnostic results (tier-3d, from this learner's own answers): [item → what the learner chose → misconception id, if any]
-Mastery evidence: [independent / assisted / not demonstrated / untested, per competency]
-Explain-back: [learner's own words]
-Transfer case and response: [...]
-Remaining gaps: [...]
+Note: the learner's diagnostic, mastery evidence, explain-back, and transfer responses are not recorded here. They go in `learning/learning-record.md`, which only the Tutor writes.
 ```
+
+---
+
+# FILE: learning/learning-record.md
+
+Written by the Tutor, never by the Builder. Use the shared template in [Learning-Record.md](../../Course-Templates/Learning-Record.md). For M1 the entry contains the four-item diagnostic with confidence (tier-3d), the opening headcount prediction and revised answer, competency evidence for C1 to C5, the explain-back, the transfer case and response, remaining gaps, and one question for M2. It is not operational evidence and is not a Reviewer input.
+
+---
+
+# FILE: runs/value-checkpoint.md
+
+Use the shared template in [Value-Checkpoint.md](../../Course-Templates/Value-Checkpoint.md). M1 prompt: *Is delegating this slice better than doing it myself or using a one-off prompt?* In class, write three lines (judgment, one supporting observation, one uncertainty). Complete the before/after measures between sessions, using the M0 Opportunity Map baseline.
 
 ---
 
