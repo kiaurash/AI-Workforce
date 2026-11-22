@@ -1,6 +1,6 @@
 # Decision Record: D1 — Novelty & Saturation Triage
 
-- Decision ID / workflow version: `D1-RUN-2026-11-01-V1`
+- Decision ID / workflow version: `D1-RUN-2026-11-11-V1`
 - Evidence / artifacts evaluated and their provenance:
   * **Evidence status: UNVERIFIED ILLUSTRATIVE RECORD.** `topic-framing-brief.md` and `research-dossier.md` were named by the cold-start agent but were not created or preserved in this Pilot package. The counts, search coverage, and confidence below therefore cannot be treated as observed research results.
   * Claimed artifact: `topic-framing-brief.md` (not present; topic was "How to leverage Systems Thinking in the Age of AI").
