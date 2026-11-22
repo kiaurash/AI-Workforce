@@ -71,16 +71,15 @@ Then copy `AI-Workforce/Workforce-Architect/skills/design-ai-workforce/` into yo
 Hermes skills directory, preserving the `templates/` and `references/` subfolders:
 
 ```
-# Linux/macOS
-cp -r AI-Workforce/Workforce-Architect/skills/design-ai-workforce ~/.hermes/skills/design-ai-workforce
-
-# Windows (git-bash / MSYS, matches Hermes's terminal tool)
-cp -r AI-Workforce/Workforce-Architect/skills/design-ai-workforce "$LOCALAPPDATA/hermes/skills/design-ai-workforce"
+cp -r AI-Workforce/Workforce-Architect/skills/design-ai-workforce "$HERMES_HOME/skills/design-ai-workforce"
 ```
 
-(If you're running a Hermes **profile** rather than the default install, use that
-profile's `skills/` directory instead — see `hermes profile` or ask your instructor
-which profile you should be using for this course.)
+`$HERMES_HOME` resolves to the right location automatically — the default install
+(`~/.hermes` on Linux/macOS, `%LOCALAPPDATA%/hermes` on Windows) or your active
+profile's own directory if you're using a Hermes **profile** rather than the default
+install (see `hermes profile` or ask your instructor which profile to use for this
+course). Run the `cp` command from inside that session/profile's own shell so the
+variable resolves correctly.
 
 ## Step 2: Start a fresh session and confirm the skill loaded
 

@@ -35,12 +35,14 @@ If you want your own editable copy, or Option A doesn't work on your setup:
 
 ```
 git clone https://github.com/kiaurash/AI-Workforce.git
-cp -r AI-Workforce/Workforce-Architect/skills/design-ai-workforce ~/.hermes/skills/design-ai-workforce
+cp -r AI-Workforce/Workforce-Architect/skills/design-ai-workforce "$HERMES_HOME/skills/design-ai-workforce"
 ```
 
-(Windows git-bash: use `"$LOCALAPPDATA/hermes/skills/design-ai-workforce"` as the
-destination instead of `~/.hermes/skills/...`. If you're using a Hermes **profile**
-rather than the default install, copy into that profile's own `skills/` directory.)
+`$HERMES_HOME` resolves to the right location automatically — the default install
+(`~/.hermes` on Linux/macOS, `%LOCALAPPDATA%/hermes` on Windows) or your active
+profile's own directory if you're using a Hermes **profile** rather than the default
+install. Run the `cp` command from inside that session/profile's own shell so the
+variable resolves correctly.
 
 Then start a **new** Hermes session.
 
